@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ Grooming - Pure Paw Pet Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef8f0;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .header-top {
+            background: rgba(28, 28, 28, 0.1);
+            padding: 10px 0;
+        }
+
+        .wrap-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .info-header {
+            color: #1C1C1C;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-header a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Navigation Menu */
+        .menu {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu .wrap-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-header img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .ulmn {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ulmn > li > a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .ulmn > li > a:hover,
+        .ulmn > li > a.active {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+        }
+
+        /* Search */
+        .search-res {
+            position: relative;
+        }
+
+        .icon-search {
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .icon-search:hover {
+            background: rgba(255, 224, 2, 0.2);
+        }
+
+        /* Breadcrumb */
+        .breadCrumbs {
+            background: #ffffff;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #FFB606;
+        }
+
+        .breadcrumb-item.active a {
+            color: #1C1C1C;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            margin-right: 10px;
+            color: #999;
+        }
+       
+
+/* ==================== FOOTER STYLES ==================== */
+.footer {
+    background: #1C1C1C;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+.footer-article {
+    padding: 50px 0 30px;
+}
+
+.footer-news {
+    margin-bottom: 30px;
+}
+
+.logo-footer img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.name-footer {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFE002;
+    margin-bottom: 15px;
+}
+
+.info-footer {
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.title-footer {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFE002;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFE002;
+}
+
+.footer-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-ul li {
+    margin-bottom: 10px;
+}
+
+.footer-ul a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-ul a:hover {
+    color: #FFE002;
+    padding-left: 10px;
+}
+
+.footer-powered {
+    background: #000000;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* ==================== SOCIAL BUTTONS ==================== */
+.social {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
+}
+
+.social img {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== SCROLL TO TOP ==================== */
+.scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 182, 6, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scrollToTop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 182, 6, 0.6);
+}
+
+.scrollToTop::before {
+    content: "↑";
+    font-size: 24px;
+    color: #1C1C1C;
+    font-weight: 700;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .ulmn {
+        gap: 15px;
+    }
+
+    .ulmn > li > a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-res {
+        display: block;
+        background: #ffffff;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu .wrap-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ulmn {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-article > div > div {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrap-content {
+        padding: 0 15px;
+    }
+}
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #3B3B3B;
+            margin-bottom: 50px;
+            font-size: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card.highlight {
+            border: 3px solid #FFB606;
+            background: linear-gradient(135deg, #FFFEF5 0%, #ffffff 100%);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #FFB606 0%, #FFE002 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            color: #1C1C1C;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .service-description {
+            color: #3B3B3B;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .read-more {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: #FFB606;
+        }
+
+        .booking-btn {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 182, 6, 0.3);
+        }
+
+        .booking-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
+        }
+
+        /* Grooming Packages Section */
+        .packages-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-card.basic {
+            border-top: 5px solid #B28228;
+        }
+
+        .package-card.advanced {
+            border-top: 5px solid #FFE002;
+        }
+
+        .package-header {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .package-card.basic .package-header {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFECB3 100%);
+        }
+
+        .package-card.advanced .package-header {
+            background: linear-gradient(135deg, #FFFEF5 0%, #FFE082 100%);
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            color: #FFB606;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .package-duration {
+            color: #3B3B3B;
+            font-size: 0.9rem;
+        }
+
+        .package-features {
+            padding: 30px;
+        }
+
+        .package-features ul {
+            list-style: none;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #3B3B3B;
+        }
+
+        .package-features li:before {
+            content: "✓";
+            color: #FFB606;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .package-footer {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .package-btn {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .package-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 182, 6, 0.5);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery-title h2 {
+            font-size: 1.8rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .gallery-title p {
+            color: #3B3B3B;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #FFB606 0%, #FFE002 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid,
+            .packages-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-price {
+                font-size: 2rem;
+            }
+        }
+
+        /* Modal Styles - FIXED */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s;
+            overflow-y: auto; /* Cho phép cuộn modal */
+            padding: 20px 0; /* Thêm padding trên/dưới */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 20px auto; /* Thay đổi từ 5% auto */
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s;
+            max-height: calc(100vh - 40px); /* Giới hạn chiều cao */
+            overflow-y: auto; /* Cho phép cuộn nội dung */
+            position: relative; /* Để có thể cuộn được */
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+            position: sticky; /* Nút đóng luôn hiển thị */
+            top: 0;
+            z-index: 1;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal h2 {
+            color: #1C1C1C;
+            margin-bottom: 20px;
+            clear: both; /* Clear float của nút close */
+            padding-top: 10px;
+        }
+
+        .modal form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal input,
+        .modal select,
+        .modal textarea {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .modal input:focus,
+        .modal select:focus,
+        .modal textarea:focus {
+            outline: none;
+            border-color: #FFB606;
+        }
+
+        .modal .submit-btn {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.4);
+        }
+
+        /* Responsive cho modal */
+        @media (max-width: 768px) {
+            .modal {
+                padding: 10px 0;
+            }
+            
+            .modal-content {
+                margin: 10px auto;
+                padding: 30px 20px;
+                width: 95%;
+                max-height: calc(100vh - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header class="header">
+    <div class="header-top">
+        <div class="wrap-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div class="info-header">
+                    <i>📍</i>
+                    <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
+                </div>
+                <div class="info-header">
+                    <i>📞</i>
+                    <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation Menu -->
+<nav class="menu">
+    <div class="wrap-content">
+        <ul class="ulmn">
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/gioi-thieu">Giới thiệu</a></li>
+            <li><a href="/dich-vu">Dịch vụ</a></li>
+            <li><a href="/san-pham">Sản phẩm</a></li>
+        </ul>
+
+        <div class="col-logo">
+            <a class="logo-header" href="/">
+                <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
+            </a>
+        </div>
+
+        <ul class="ulmn">
+            <li><a href="/album">Album</a></li>
+            <li><a href="/tin-tuc">Tin tức</a></li>
+            <li><a href="/lien-he">Liên hệ</a></li>
+            <li>
+                <div class="search-res">
+                    <p class="icon-search">
+                        🔍
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>    
+
+    <!-- Header -->
+    <div class="header">
+        <h1>DỊCH VỤ CỦA CHÚNG TÔI</h1>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services-section">
+        <div class="section-title">
+            <h2>CHĂM SÓC THÚ CƯNG CỦA BẠN VỚI</h2>
+            <h2>CÁC DỊCH VỤ CHUYÊN NGHIỆP</h2>
+        </div>
+        <div class="section-subtitle">
+            Chúng tôi cung cấp đầy đủ các dịch vụ chăm sóc và làm đẹp cho thú cưng của bạn với đội ngũ chuyên gia giàu kinh nghiệm và trang thiết bị hiện đại.
+        </div>
+
+        <div class="services-grid">
+            <!-- Thu y -->
+            <div class="service-card highlight">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 1.png" alt="Thu Y">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Dịch vụ thú y</h3>
+                    <p class="service-description">
+                      Khám và chăm sóc sức khỏe toàn diện cho thú cưng với đội ngũ bác sĩ chuyên nghiệp, trang thiết bị hiện đại. Tiêm phòng, xét nghiệm, điều trị và phẫu thuật.
+                    </p>
+                    <div class="service-footer">
+                        <a href="/FRONTEND CLIENT/grooming/groomingdetails.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Dịch vụ thú y')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Walking -->
+            <div class="service-card highlight">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 2.png" alt="Dắt dạo">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Dắt dạo</h3>
+                    <p class="service-description">
+                        Dịch vụ dắt chó đi dạo chuyên nghiệp, giúp thú cưng của bạn được vận động, giao lưu và khám phá thế giới xung quanh trong môi trường an toàn.
+                    </p>
+                    <div class="service-footer">
+                        <a href="dat-dao-detail.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Dắt dạo')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bathing -->
+            <div class="service-card highlight">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 3.png" alt="Tắm gội">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Tắm gội</h3>
+                    <p class="service-description">
+                        Dịch vụ tắm gội cao cấp với quy trình chuẩn quốc tế, sử dụng các sản phẩm chăm sóc da và lông phù hợp với từng giống chó mèo.
+                    </p>
+                    <div class="service-footer">
+                        <a href="tam-goi-detail.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Tắm gội')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 4.png" alt="Huấn luyện">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Huấn luyện</h3>
+                    <p class="service-description">
+                        Chương trình huấn luyện cơ bản và nâng cao giúp thú cưng của bạn ngoan ngoãn, thông minh và có những kỹ năng cần thiết trong cuộc sống.
+                    </p>
+                    <div class="service-footer">
+                        <a href="huan-luyen-detail.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Huấn luyện')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nail Clipping -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 5.png" alt="Cắt móng">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Cắt móng</h3>
+                    <p class="service-description">
+                        Dịch vụ cắt tỉa móng chuyên nghiệp, an toàn giúp thú cưng của bạn thoải mái khi di chuyển và tránh các vấn đề về móng.
+                    </p>
+                    <div class="service-footer">
+                        <a href="cat-mong-detail.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Cắt móng')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daycare -->
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 6.png" alt="Nhà trẻ">
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Nhà trẻ</h3>
+                    <p class="service-description">
+                        Dịch vụ chăm sóc ban ngày trong môi trường an toàn, vui vẻ với các hoạt động giải trí và giao lưu cùng bạn bè thú cưng khác.
+                    </p>
+                    <div class="service-footer">
+                        <a href="nha-tre-detail.html" class="read-more">Tìm hiểu thêm →</a>
+                        <button class="booking-btn" onclick="openBookingModal('Nhà trẻ')">Đặt lịch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grooming Packages Section -->
+    <div class="packages-section">
+        <div class="section-title">
+            <h2>GÓI GROOMING TOÀN DIỆN</h2>
+        </div>
+        <div class="section-subtitle">
+            Chọn gói dịch vụ phù hợp với nhu cầu của thú cưng. Mỗi gói đều được thiết kế để mang lại trải nghiệm chăm sóc tốt nhất.
+        </div>
+
+        <div class="packages-grid">
+            <!-- Basic Package -->
+            <div class="package-card basic">
+                <div class="package-header">
+                    <h3 class="package-name">Gói Basic</h3>
+                    <div class="package-price">499.000đ</div>
+                    <div class="package-duration">Thời gian: 60-90 phút</div>
+                </div>
+                <div class="package-features">
+                    <ul>
+                        <li>Tắm gội với sản phẩm cao cấp</li>
+                        <li>Sấy khô và chải lông</li>
+                        <li>Cắt tỉa móng</li>
+                        <li>Vệ sinh tai</li>
+                        <li>Cắt tỉa lông cơ bản</li>
+                        <li>Nước hoa thú cưng</li>
+                        <li>Kiểm tra sức khỏe cơ bản</li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <button class="package-btn" onclick="openBookingModal('Gói Basic')">Đặt lịch ngay</button>
+                </div>
+            </div>
+
+            <!-- Advanced Package -->
+            <div class="package-card advanced">
+                <div class="package-header">
+                    <h3 class="package-name">Gói Advanced</h3>
+                    <div class="package-price">899.000đ</div>
+                    <div class="package-duration">Thời gian: 120-150 phút</div>
+                </div>
+                <div class="package-features">
+                    <ul>
+                        <li>Tất cả dịch vụ trong gói Basic</li>
+                        <li>Tạo kiểu lông theo yêu cầu</li>
+                        <li>Spa thư giãn với tinh dầu</li>
+                        <li>Massage thư giãn</li>
+                        <li>Vệ sinh răng miệng chuyên sâu</li>
+                        <li>Nhuộm lông an toàn (tùy chọn)</li>
+                        <li>Chụp ảnh lưu niệm</li>
+                        <li>Tặng kèm băng đô/nơ xinh</li>
+                        <li>Tư vấn chăm sóc tại nhà</li>
+                    </ul>
+                </div>
+                <div class="package-footer">
+                    <button class="package-btn" onclick="openBookingModal('Gói Advanced')">Đặt lịch ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <div class="gallery-title">
+            <h2>Râu, Đuôi Và Đôi Mắt Rạng Rỡ</h2>
+            <p>Bộ Sưu Tập Đầy Yêu Thương</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image-1.png" alt="Pet 1">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image-2.png" alt="Pet 2">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image-3.png" alt="Pet 3">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image-4.png" alt="Pet 4">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image-5.png" alt="Pet 5">
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image">
+                    <img src="/FRONTEND CLIENT/assets/Image.png" alt="Pet 6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Đặt lịch dịch vụ</h2>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <input type="text" id="serviceName" readonly>
+                <input type="text" placeholder="Họ và tên *" required>
+                <input type="tel" placeholder="Số điện thoại *" required>
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Tên thú cưng *" required>
+                <select required>
+                    <option value="">Chọn loại thú cưng *</option>
+                    <option value="dog">Chó</option>
+                    <option value="cat">Mèo</option>
+                    <option value="other">Khác</option>
+                </select>
+                <input type="date" placeholder="Ngày hẹn *" required>
+                <select required>
+                    <option value="">Chọn giờ hẹn *</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <textarea placeholder="Ghi chú (nếu có)" rows="3"></textarea>
+                <button type="submit" class="submit-btn">Xác nhận đặt lịch</button>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-article">
+        <div class="wrap-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                <!-- Company Info -->
+                <div class="footer-news">
+                    <a class="logo-footer" href="/">
+                        <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
+                    </a>
+                    <div class="name-footer">PURE PAW PET SHOP</div>
+                    <div class="info-footer">
+                        <p>
+                            <strong>"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"</strong><br><br>
+                            📍 Địa chỉ: 07 Cửu Long, Phường Hòa Hưng, TP. Hồ Chí Minh<br>
+                            📞 Điện thoại: 083 764 5555<br>
+                            ✉️ Email: info@purepaw.com<br>
+                            🌐 Website: http://purepaw.com/
+                        </p>
+                    </div>
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/purepawpetshop" target="_blank">f</a></li>
+                        <li><a href="#">📱</a></li>
+                        <li><a href="#">▶️</a></li>
+                    </ul>
+                </div>
+
+                <!-- Policies -->
+                <div class="footer-news">
+                    <h4 class="title-footer">CHÍNH SÁCH CÔNG TY</h4>
+                    <ul class="footer-ul">
+                        <li><a href="/chinh-sach-dat-lich">Chính sách đặt lịch</a></li>
+                        <li><a href="/chinh-sach-mua-hang">Chính sách mua hàng</a></li>
+                        <li><a href="/chinh-sach-giao-hang">Chính sách giao hàng</a></li>
+                        <li><a href="/chinh-sach-thanh-toan">Chính sách thanh toán</a></li>
+                    </ul>
+                    <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
+                        <div style="font-size: 40px;">🕐</div>
+                        <div>
+                            <div style="color: #FFE002; font-weight: 700; margin-bottom: 5px;">Giờ Mở Cửa</div>
+                            <span>08:00 - 20:00 (Mon - Sun)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu -->
+                <div class="footer-news">
+                    <h4 class="title-footer">DANH MỤC</h4>
+                    <ul class="footer-ul">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                        <li><a href="/dich-vu">Dịch vụ</a></li>
+                        <li><a href="/san-pham">Sản phẩm</a></li>
+                        <li><a href="/album">Album</a></li>
+                        <li><a href="/tin-tuc">Tin tức</a></li>
+                        <li><a href="/lien-hệ">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-powered">
+        <div class="wrap-content">
+            <div>
+                Copyright © <strong>PURE PAW PET SHOP</strong>. All rights reserved. Designed by Nina
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<div class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Scroll to top button visibility
+    window.addEventListener('scroll', function() {
+        const scrollBtn = document.querySelector('.scrollToTop');
+        if (window.pageYOffset > 300) {
+            scrollBtn.style.display = 'flex';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    });
+
+    // Initialize scroll button as hidden
+    document.querySelector('.scrollToTop').style.display = 'none';
+</script>
+
+    <script>
+        // Modal functions
+        function openBookingModal(serviceName) {
+            document.getElementById('bookingModal').style.display = 'block';
+            document.getElementById('serviceName').value = serviceName;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target == modal) {
+                closeBookingModal();
+            }
+        }
+
+        // Handle booking form submission
+        function handleBooking(event) {
+            event.preventDefault();
+            
+            // Lấy thông tin từ form
+            const formData = {
+                service: document.getElementById('serviceName').value,
+                name: event.target.elements[1].value,
+                phone: event.target.elements[2].value,
+                email: event.target.elements[3].value,
+                petName: event.target.elements[4].value,
+                petType: event.target.elements[5].value,
+                date: event.target.elements[6].value,
+                time: event.target.elements[7].value,
+                notes: event.target.elements[8].value
+            };
+            
+            // Lưu thông tin vào localStorage để sử dụng ở trang thanh toán
+            localStorage.setItem('bookingData', JSON.stringify(formData));
+            
+            // Chuyển hướng đến trang thanh toán
+            window.location.href = 'groomingcheckout.html';
+        }
+
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    </script>
+</body>
+</html>
