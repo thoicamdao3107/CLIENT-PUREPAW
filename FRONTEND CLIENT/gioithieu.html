@@ -196,9 +196,9 @@
 
         .story-subtitle {
             font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 60px;
+            color: #000000;
+            max-width: auto;
+            margin: 0 auto 0px;
             line-height: 1.6;
         }
 
@@ -230,7 +230,7 @@
         .story-text {
             font-size: 1rem;
             line-height: 1.8;
-            color: #555;
+            color: #1c1c1c;
         }
 
         /* Values Section */
@@ -281,14 +281,14 @@
         .value-name {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #333;
+            color: #1C1C1C;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         .value-detail {
             font-size: 0.9rem;
-            color: #666;
+            color: #1c1c1c;
             line-height: 1.6;
         }
 
@@ -306,7 +306,7 @@
         .stats-title {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #333;
+            color: #1c1c1c;
             text-transform: uppercase;
             line-height: 1.2;
         }
@@ -327,14 +327,14 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 900;
-            color: #333;
+            color: #1c1c1c;
             margin-bottom: 10px;
             animation: countUp 0.6s ease forwards;
         }
 
         .stat-label {
             font-size: 1rem;
-            color: #666;
+            color: #1c1c1c;
             font-weight: 500;
         }
 
@@ -353,7 +353,7 @@
 
         .testimonials-subtitle {
             font-size: 1rem;
-            color: #666;
+            color: #1c1c1c;
             margin-bottom: 50px;
         }
 
@@ -380,50 +380,60 @@
             margin-bottom: 20px;
         }
 
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #FF8C42;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;          /* quan trọng: cắt ảnh thành tròn */
+    margin-right: 15px;
+    flex-shrink: 0;            /* không bị co lại */
+    border: 3px solid #FDB913; /* viền vàng cho đẹp */
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* ưu tiên hiển thị phần mặt */
+    border-radius: 0;            /* bỏ border-radius ở đây, để overflow:hidden xử lý */
+    display: block;
+}
 
         .testimonial-name {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #333;
+            color: #1c1c1c;
         }
 
         .testimonial-role {
             font-size: 0.9rem;
-            color: #999;
+            color: #1c1c1c;
         }
 
         .testimonial-text {
             font-size: 0.95rem;
             line-height: 1.8;
-            color: #555;
+            color: #1c1c1c;
             font-style: italic;
         }
 
-        .testimonial-icon {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: #FF8C42;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
+.testimonial-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #FF8C42;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 0;        /* quan trọng */
+    padding-bottom: 6px;   /* bù độ lệch tự nhiên của dấu " */
+}
 
         .nav-arrows {
             margin-top: 30px;
@@ -679,7 +689,7 @@
         </p>
 
         <div class="story-content">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=700&fit=crop" alt="Pure Paw Pet Shop" class="story-image">
+            <img src="./assets/anhgioithieu.jpg" alt="Pure Paw Pet Shop" class="story-image">
             <div class="story-text-content">
                 <h2 class="story-text-title">Đam Mê Với Thú Cưng Và Cam Kết Chất Lượng Hàng Đầu</h2>
                 <p class="story-text">
@@ -756,91 +766,93 @@
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-avatar">
+                            <img src="./assets/customer2.jpg" alt="Nguyễn Minh Anh">
+                    </div>
                     <div>
                         <div class="testimonial-name">Nguyễn Minh Anh</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Tôi rất hài lòng với chất lượng thức ăn cho mèo tại Pure Paw. Chú mèo của tôi trước đây rất kén ăn, nhưng từ khi dùng sản phẩm ở đây thì ăn rất ngon miệng. Nhân viên tư vấn nhiệt tình và am hiểu sản phẩm."</p>
-                <div class="testimonial-icon">➔</div>
+           <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-avatar">
+                            <img src="./assets/customer5.jpg" alt="Trần Đức Huy">
+                    </div>
                     <div>
                         <div class="testimonial-name">Trần Đức Huy</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Dịch vụ grooming tại Pure Paw thật tuyệt vời! Chú chó của tôi sau mỗi lần cắt tỉa lông đều trở về với bộ lông đẹp và mùi hương thơm tho. Giá cả hợp lý, nhân viên chuyên nghiệp và yêu thương thú cưng."</p>
-                <div class="testimonial-icon">➔</div>
+               <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+<div class="testimonial-avatar">
+    <img src="./assets/customer3.jpg" alt="Phạm Thu Hà">
+</div>
                     <div>
                         <div class="testimonial-name">Phạm Thu Hà</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Mình mua đồ chơi và phụ kiện cho chó tại Pure Paw, chất lượng rất tốt và giá cả phải chăng. Những món đồ chơi an toàn, không mùi lạ. Chú chó nhà mình rất thích và chơi rất vui."</p>
-                <div class="testimonial-icon">➔</div>
+               <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+<div class="testimonial-avatar">
+    <img src="./assets/customer6.jpg" alt="Lê Hoàng Nam">
+</div>
                     <div>
                         <div class="testimonial-name">Lê Hoàng Nam</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Pure Paw có đa dạng sản phẩm snacks cho thú cưng với nguồn gốc rõ ràng. Chú Golden của tôi rất thích các loại bánh thưởng ở đây. Cửa hàng luôn có hàng mới, sản phẩm chất lượng cao."</p>
-                <div class="testimonial-icon">➔</div>
+                <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+<div class="testimonial-avatar">
+    <img src="./assets/customer2.jpg" alt="Võ Thanh Tâm">
+</div>
                     <div>
                         <div class="testimonial-name">Võ Thanh Tâm</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Tôi đã mua nhà cho mèo và nhiều phụ kiện tại Pure Paw. Sản phẩm đẹp, chắc chắn và giá tốt. Hai chú mèo nhà tôi rất thích ngôi nhà mới. Sẽ tiếp tục ủng hộ cửa hàng!"</p>
-                <div class="testimonial-icon">➔</div>
+                <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
-                    <div>
-                        <div class="testimonial-name">Đặng Văn Tuấn</div>
-                        <div class="testimonial-role">Chủ thú cưng</div>
-                    </div>
-                </div>
-                <p class="testimonial-text">"Là người nuôi chó Husky, tôi rất cần thức ăn dinh dưỡng cao. Pure Paw có nhiều lựa chọn thức ăn cao cấp cho chó lớn. Nhân viên tư vấn rất hiểu về đặc điểm từng giống chó. Rất hài lòng!"</p>
-                <div class="testimonial-icon">➔</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
+                    <div class="testimonial-avatar">
+    <img src="./assets/customer4.jpg" alt="Bùi Thị Lan">
+</div>
                     <div>
                         <div class="testimonial-name">Bùi Thị Lan</div>
                         <div class="testimonial-role">Chủ thú cưng</div>
                     </div>
                 </div>
                 <p class="testimonial-text">"Mình thường xuyên mua snacks và đồ nhai răng cho Poodle tại Pure Paw. Sản phẩm an toàn, có nguồn gốc rõ ràng và chú chó rất thích. Giá cả cạnh tranh, có nhiều chương trình khuyến mãi."</p>
-                <div class="testimonial-icon">➔</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">👤</div>
-                    <div>
-                        <div class="testimonial-name">Hoàng Minh Quân</div>
-                        <div class="testimonial-role">Chủ thú cưng</div>
-                    </div>
-                </div>
-                <p class="testimonial-text">"Không gian cửa hàng Pure Paw rất đẹp và chuyên nghiệp. Từ thức ăn, phụ kiện đến dịch vụ grooming đều tuyệt vời. Tôi đã sử dụng gói chăm sóc định kỳ cho chó, rất tiện lợi và tiết kiệm."</p>
-                <div class="testimonial-icon">➔</div>
+            <div class="testimonial-icon">
+  <i class="fa-solid fa-quote-right"></i>
+</div>
             </div>
         </div>
 
@@ -851,7 +863,6 @@
 
         <div class="dots">
             <span class="dot active"></span>
-            <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
         </div>
