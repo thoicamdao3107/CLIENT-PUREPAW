@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - VSA PET CLINIC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef8f0;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .header-top {
+            background: rgba(28, 28, 28, 0.1);
+            padding: 10px 0;
+        }
+
+        .wrap-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .info-header {
+            color: #1C1C1C;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-header a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Navigation Menu */
+        .menu {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu .wrap-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-header img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .ulmn {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ulmn > li > a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .ulmn > li > a:hover,
+        .ulmn > li > a.active {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #1C1C1C;
+            font-weight: 700;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .payment-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FFE002;
+        }
+
+        .booking-info {
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .info-value {
+            color: #1C1C1C;
+            font-weight: 500;
+        }
+
+        .price-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #FFE002;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FFB606;
+        }
+
+        /* Payment Method */
+        .payment-method {
+            margin-top: 20px;
+        }
+
+        .method-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .method-option:hover {
+            border-color: #FFB606;
+            background: #FFFEF5;
+        }
+
+        .method-option input[type="radio"] {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .method-option.selected {
+            border-color: #FFB606;
+            background: #FFFEF5;
+        }
+
+        .method-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .method-details h4 {
+            font-size: 1.1rem;
+            color: #1C1C1C;
+            margin-bottom: 5px;
+        }
+
+        .method-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .qr-section.active {
+            display: block;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .bank-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .bank-info p {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .bank-info strong {
+            color: #FFB606;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 182, 6, 0.5);
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal.active {
+            display: flex;
+        }
+
+        .success-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            animation: slideUp 0.5s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .success-content h2 {
+            color: #1C1C1C;
+            margin-bottom: 15px;
+        }
+
+        .success-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .payment-container {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="wrap-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div class="info-header">
+                        <i>📍</i>
+                        <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
+                    </div>
+                    <div class="info-header">
+                        <i>📞</i>
+                        <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="menu">
+        <div class="wrap-content">
+            <ul class="ulmn">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                <li><a href="/dich-vu">Dịch vụ</a></li>
+                <li><a href="/san-pham">Sản phẩm</a></li>
+            </ul>
+
+            <div class="col-logo">
+                <a class="logo-header" href="/">
+                    <img src="/FRONTEND CLIENT/assets/logo.png" alt="VSA PET CLINIC" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
+                </a>
+            </div>
+
+            <ul class="ulmn">
+                <li><a href="/album">Album</a></li>
+                <li><a href="/tin-tuc">Tin tức</a></li>
+                <li><a href="/lien-he">Liên hệ</a></li>
+                <li>
+                    <div class="search-res">
+                        <p class="icon-search">🔍</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>THANH TOÁN</h1>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+        <div class="payment-container">
+            <!-- Booking Details -->
+            <div class="payment-card">
+                <h2 class="card-title">Thông Tin Đặt Lịch</h2>
+                <div class="booking-info">
+                    <div class="info-row">
+                        <span class="info-label">Dịch vụ:</span>
+                        <span class="info-value" id="service">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Họ và tên:</span>
+                        <span class="info-value" id="customerName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Số điện thoại:</span>
+                        <span class="info-value" id="phone">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value" id="email">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Tên thú cưng:</span>
+                        <span class="info-value" id="petName">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Loại thú cưng:</span>
+                        <span class="info-value" id="petType">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ngày hẹn:</span>
+                        <span class="info-value" id="date">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Giờ hẹn:</span>
+                        <span class="info-value" id="time">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ghi chú:</span>
+                        <span class="info-value" id="notes">-</span>
+                    </div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price-row">
+                        <span>Giá dịch vụ:</span>
+                        <span id="servicePrice">0đ</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Phí đặt lịch:</span>
+                        <span>0đ</span>
+                    </div>
+                    <div class="total-price">
+                        <span>Tổng cộng:</span>
+                        <span id="totalPrice">0đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="payment-card">
+                <h2 class="card-title">Phương Thức Thanh Toán</h2>
+                <div class="payment-method">
+                    <div class="method-option" onclick="selectPayment('cash')">
+                        <input type="radio" name="payment" value="cash" checked>
+                        <span class="method-icon">
+                            <img src="cash.png" alt="Tiền mặt" style="height: 30px; vertical-align: middle;">
+                        </span>
+                        <div class="method-details">
+                            <h4>Thanh toán khi đến</h4>
+                            <p>Thanh toán trực tiếp tại cửa hàng</p>
+                        </div>
+                    </div>
+
+                    <div class="method-option" onclick="selectPayment('transfer')">
+                        <input type="radio" name="payment" value="transfer">
+                        <span class="method-icon">
+                            <img src="bank.png" alt="Chuyển khoản" style="height: 30px; vertical-align: middle;">
+                        </span>
+                        <div class="method-details">
+                            <h4>Chuyển khoản ngân hàng</h4>
+                            <p>Chuyển khoản qua QR Code hoặc số tài khoản</p>
+                        </div>
+                    </div>
+
+                    <div class="method-option" onclick="selectPayment('momo')">
+                        <input type="radio" name="payment" value="momo">
+                        <span class="method-icon">
+                            <img src="momo-logo.png" alt="MoMo" style="height: 30px; vertical-align: middle;">
+                        </span>
+                        <div class="method-details">
+                            <h4>Ví MoMo</h4>
+                            <p>Thanh toán qua ví điện tử MoMo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code Section -->
+                <div class="qr-section" id="qrSection">
+                    <h3 style="margin-bottom: 15px;">Quét mã QR để thanh toán</h3>
+                    <div class="qr-code">
+                        <img src="/FRONTEND CLIENT/assets/payment/ma_qr.png" alt="QR Code" style="width: 200px; height: 200px;">
+                    </div>
+                    <div class="bank-info">
+                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                        <p><strong>Số tài khoản:</strong> 0123456789</p>
+                        <p><strong>Chủ tài khoản:</strong> VSA PET CLINIC</p>
+                        <p><strong>Nội dung:</strong> <span id="transferContent">DATLICH [SDT]</span></p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="history.back()">← Quay lại</button>
+                    <button class="btn btn-primary" onclick="confirmPayment()">Xác nhận thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h2>Đặt Lịch Thành Công!</h2>
+            <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Chúng tôi sẽ liên hệ với bạn để xác nhận lịch hẹn trong thời gian sớm nhất.</p>
+            <button class="btn btn-primary" onclick="goHome()">Về trang chủ</button>
+        </div>
+    </div>
+
+    <script>
+        // Load booking data
+        window.addEventListener('DOMContentLoaded', function() {
+            const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+            
+            if (!bookingData) {
+                alert('Không tìm thấy thông tin đặt lịch!');
+                window.location.href = 'service.html';
+                return;
+            }
+
+            // Display booking information
+            document.getElementById('service').textContent = bookingData.service;
+            document.getElementById('customerName').textContent = bookingData.name;
+            document.getElementById('phone').textContent = bookingData.phone;
+            document.getElementById('email').textContent = bookingData.email || '-';
+            document.getElementById('petName').textContent = bookingData.petName;
+            document.getElementById('petType').textContent = getPetTypeName(bookingData.petType);
+            document.getElementById('date').textContent = formatDate(bookingData.date);
+            document.getElementById('time').textContent = bookingData.time;
+            document.getElementById('notes').textContent = bookingData.notes || '-';
+
+            // Calculate price
+            const price = getServicePrice(bookingData.service);
+            document.getElementById('servicePrice').textContent = formatPrice(price);
+            document.getElementById('totalPrice').textContent = formatPrice(price);
+
+            // Set transfer content
+            document.getElementById('transferContent').textContent = `DATLICH ${bookingData.phone}`;
+        });
+
+        // Get service price
+        function getServicePrice(service) {
+            const prices = {
+                'Grooming': 499000,
+                'Dắt dạo': 200000,
+                'Tắm gội': 300000,
+                'Huấn luyện': 500000,
+                'Cắt móng': 100000,
+                'Nhà trẻ': 350000,
+                'Gói Basic': 499000,
+                'Gói Advanced': 899000
+            };
+            return prices[service] || 0;
+        }
+
+        // Get pet type name
+        function getPetTypeName(type) {
+            const types = {
+                'dog': 'Chó',
+                'cat': 'Mèo',
+                'other': 'Khác'
+            };
+            return types[type] || type;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        // Format price
+        function formatPrice(price) {
+            return price.toLocaleString('vi-VN') + 'đ';
+        }
+
+        // Select payment method
+        function selectPayment(method) {
+            // Update radio buttons
+            const radios = document.querySelectorAll('input[name="payment"]');
+            radios.forEach(radio => {
+                if (radio.value === method) {
+                    radio.checked = true;
+                }
+            });
+
+            // Update visual selection
+            const options = document.querySelectorAll('.method-option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+
+            // Show/hide QR section
+            const qrSection = document.getElementById('qrSection');
+            if (method === 'transfer' || method === 'momo') {
+                qrSection.classList.add('active');
+            } else {
+                qrSection.classList.remove('active');
+            }
+        }
+
+        // Confirm payment
+        function confirmPayment() {
+            const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
+            
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+            
+            // Clear booking data
+            setTimeout(() => {
+                localStorage.removeItem('bookingData');
+            }, 1000);
+        }
+
+        // Go to home page
+        function goHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

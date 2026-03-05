@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pate cho mèo mọi lứa tuổi laPaw - VSA PET CLINIC</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .wrap-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .header-top {
+            background: rgba(28, 28, 28, 0.1);
+            padding: 10px 0;
+        }
+
+        .info-header {
+            color: #1C1C1C;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-header a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Navigation Menu */
+        .menu {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu .wrap-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-header img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .ulmn {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ulmn > li > a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .ulmn > li > a:hover,
+        .ulmn > li > a.active {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+        }
+
+        /* Breadcrumb */
+        .breadCrumbs {
+            background: #ffffff;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #FFB606;
+        }
+
+        .breadcrumb-item.active a {
+            color: #1C1C1C;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            margin-right: 10px;
+            color: #999;
+        }
+
+        /* Product Detail */
+        .product-detail {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Product Images */
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fff9e6 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #FFE002;
+            overflow: hidden;
+        }
+
+        .main-image::after {
+            content: "📦";
+            font-size: 120px;
+            opacity: 0.3;
+        }
+
+        .thumbnail-images {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            height: 100px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fff9e6 100%);
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: #FFE002;
+            transform: translateY(-2px);
+        }
+
+        /* Product Info */
+        .product-info h1 {
+            font-size: 28px;
+            color: #1C1C1C;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-old {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .product-meta {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: #666;
+            min-width: 120px;
+        }
+
+        .meta-value {
+            color: #1C1C1C;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            color: #1C1C1C;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 182, 6, 0.4);
+        }
+
+        .btn-contact {
+            flex: 1;
+            background: transparent;
+            border: 2px solid #FFE002;
+            padding: 15px 30px;
+            border-radius: 12px;
+            color: #1C1C1C;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+        }
+
+        /* Tabs */
+        .product-tabs {
+            margin-top: 40px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 15px 25px;
+            color: #666;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            color: #1C1C1C;
+            border-bottom-color: #FFE002;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .product-description {
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Reviews */
+        .reviews-summary {
+            background: linear-gradient(135deg, #fffbeb 0%, #fff9e6 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .rating-score {
+            text-align: center;
+        }
+
+        .rating-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFB606;
+        }
+
+        .rating-stars {
+            font-size: 24px;
+            color: #FFE002;
+        }
+
+        .rating-count {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .rating-bars {
+            flex: 1;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bar-label {
+            min-width: 60px;
+            color: #666;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            transition: width 0.3s ease;
+        }
+
+        .bar-count {
+            min-width: 40px;
+            text-align: right;
+            color: #666;
+        }
+
+        .review-item {
+            padding: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1C1C1C;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: #1C1C1C;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .review-rating {
+            color: #FFE002;
+        }
+
+        .review-content {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Related Products */
+        .related-products {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1C1C1C;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFE002;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 182, 6, 0.3);
+        }
+
+        .product-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fff9e6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid #FFE002;
+        }
+
+        .product-card-image::after {
+            content: "📦";
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        .product-card-info {
+            padding: 15px;
+        }
+
+        .product-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1C1C1C;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-card-price {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1C1C1C;
+            color: #ffffff;
+            margin-top: 50px;
+        }
+
+        .footer-article {
+            padding: 50px 0 30px;
+        }
+
+        .footer-news {
+            margin-bottom: 30px;
+        }
+
+        .logo-footer img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .name-footer {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFE002;
+            margin-bottom: 15px;
+        }
+
+        .info-footer {
+            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .title-footer {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFE002;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFE002;
+        }
+
+        .footer-ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-ul a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .footer-ul a:hover {
+            color: #FFE002;
+            padding-left: 10px;
+        }
+
+        .footer-powered {
+            background: #000000;
+            padding: 20px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        /* Social Buttons */
+        .social {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
+        }
+
+        /* Scroll to Top */
+        .scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 182, 6, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scrollToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 182, 6, 0.6);
+        }
+
+        .scrollToTop::before {
+            content: "↑";
+            font-size: 24px;
+            color: #1C1C1C;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu .wrap-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .ulmn {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .product-detail {
+                padding: 20px;
+            }
+
+            .reviews-summary {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .thumbnail-images {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="wrap-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div class="info-header">
+                        <i>📍</i>
+                        <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
+                    </div>
+                    <div class="info-header">
+                        <i>📞</i>
+                        <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="menu">
+        <div class="wrap-content">
+            <ul class="ulmn">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                <li><a href="/dich-vu">Dịch vụ</a></li>
+                <li><a href="/san-pham" class="active">Sản phẩm</a></li>
+            </ul>
+
+            <div class="col-logo">
+                <a class="logo-header" href="/">
+                    <img src="" alt="VSA PET CLINIC" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
+                </a>
+            </div>
+
+            <ul class="ulmn">
+                <li><a href="/album">Album</a></li>
+                <li><a href="/tin-tuc">Tin tức</a></li>
+                <li><a href="/lien-he">Liên hệ</a></li>
+                <li>
+                    <div class="search-res">
+                        <p class="icon-search" style="cursor: pointer; padding: 8px;">
+                            🔍
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadCrumbs">
+        <div class="wrap-content">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/"><span>Trang chủ</span></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/san-pham"><span>Sản phẩm</span></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/shop-cho-meo"><span>CAT STORE</span></a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#"><span>Pate cho mèo mọi lứa tuổi laPaw vị thịt bò và gà 375g</span></a>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <div class="wrap-content">
+        <div class="product-detail">
+            <!-- Product Detail Grid -->
+            <div class="product-detail-grid">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image"></div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active"></div>
+                        <div class="thumbnail"></div>
+                        <div class="thumbnail"></div>
+                        <div class="thumbnail"></div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1>Pate cho mèo mọi lứa tuổi laPaw vị thịt bò và gà 375g</h1>
+                    
+                    <div class="product-price">
+                        <span class="price-current">Liên hệ</span>
+                        <!-- <span class="price-old">150.000đ</span> -->
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Thương hiệu:</span>
+                            <span class="meta-value">LaPaw</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Xuất xứ:</span>
+                            <span class="meta-value">Việt Nam</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Trọng lượng:</span>
+                            <span class="meta-value">375g</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tình trạng:</span>
+                            <span class="meta-value" style="color: #28a745; font-weight: 600;">✓ Còn hàng</span>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn-buy" onclick="alert('Chức năng đang được phát triển!')">
+                            🛒 Mua ngay
+                        </button>
+                        <button class="btn-contact" onclick="window.location.href='tel:0837645555'">
+                            📞 Liên hệ
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-nav">
+                    <button class="tab-button active" onclick="switchTab(event, 'description')">Mô tả sản phẩm</button>
+                    <button class="tab-button" onclick="switchTab(event, 'reviews')">Đánh giá (24)</button>
+                </div>
+
+                <!-- Description Tab -->
+                <div id="description" class="tab-content active">
+                    <div class="product-description">
+                        <h3 style="color: #1C1C1C; margin-bottom: 15px;">Thông tin sản phẩm</h3>
+                        <p style="margin-bottom: 15px;">
+                            Pate cho mèo mọi lứa tuổi LaPaw vị thịt bò và gà 375g là sản phẩm thức ăn ướt cao cấp, được chế biến từ nguyên liệu tươi ngon, giàu dinh dưỡng, đảm bảo cung cấp đầy đủ protein, vitamin và khoáng chất cần thiết cho sự phát triển toàn diện của mèo cưng.
+                        </p>
+                        
+                        <h4 style="color: #1C1C1C; margin-top: 25px; margin-bottom: 15px;">Đặc điểm nổi bật:</h4>
+                        <ul style="margin-left: 20px; line-height: 2;">
+                            <li>✓ Thành phần từ thịt bò và gà tươi ngon, đảm bảo chất lượng</li>
+                            <li>✓ Giàu protein, vitamin và khoáng chất thiết yếu</li>
+                            <li>✓ Hương vị thơm ngon, kích thích vị giác của mèo</li>
+                            <li>✓ Dễ tiêu hóa, phù hợp với mọi lứa tuổi</li>
+                            <li>✓ Không chứa chất bảo quản, màu nhân tạo</li>
+                            <li>✓ Đóng gói tiện lợi, dễ sử dụng</li>
+                        </ul>
+
+                        <h4 style="color: #1C1C1C; margin-top: 25px; margin-bottom: 15px;">Hướng dẫn sử dụng:</h4>
+                        <p style="margin-bottom: 10px;">
+                            - Mèo con (2-12 tháng tuổi): 1-2 hộp/ngày<br>
+                            - Mèo trưởng thành: 2-3 hộp/ngày<br>
+                            - Phối hợp với thức ăn khô để đảm bảo dinh dưỡng cân bằng<br>
+                            - Bảo quản nơi khô ráo, thoáng mát
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content">
+                    <!-- Reviews Summary -->
+                    <div class="reviews-summary">
+                        <div class="rating-score">
+                            <div class="rating-number">4.8</div>
+                            <div class="rating-stars">★★★★★</div>
+                            <div class="rating-count">24 đánh giá</div>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <span class="bar-label">5 sao</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="bar-count">20</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="bar-label">4 sao</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 10%"></div>
+                                </div>
+                                <span class="bar-count">2</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="bar-label">3 sao</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 5%"></div>
+                                </div>
+                                <span class="bar-count">2</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="bar-label">2 sao</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-count">0</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span class="bar-label">1 sao</span>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="bar-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Items -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">NT</div>
+                                <div>
+                                    <div class="reviewer-name">Nguyễn Thị Mai</div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="review-date">2 ngày trước</div>
+                        </div>
+                        <div class="review-content">
+                            Sản phẩm rất tốt! Mèo nhà mình rất thích ăn, hương vị thơm ngon. Đóng gói cẩn thận, giao hàng nhanh. Sẽ ủng hộ shop lâu dài.
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">LH</div>
+                                <div>
+                                    <div class="reviewer-name">Lê Văn Hoàng</div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="review-date">1 tuần trước</div>
+                        </div>
+                        <div class="review-content">
+                            Chất lượng sản phẩm tuyệt vời! Mèo con nhà mình ăn ngon lành, lông mượt và khỏe mạnh hơn hẳn. Giá cả hợp lý, đáng đồng tiền bát gạo.
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">PT</div>
+                                <div>
+                                    <div class="reviewer-name">Phạm Thu Hương</div>
+                                    <div class="review-rating">★★★★☆</div>
+                                </div>
+                            </div>
+                            <div class="review-date">2 tuần trước</div>
+                        </div>
+                        <div class="review-content">
+                            Sản phẩm ổn, mèo nhà mình ăn được. Tuy nhiên mùi hơi tanh một chút. Nhìn chung vẫn ok, sẽ tiếp tục mua để thử.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2 class="section-title">Sản phẩm liên quan</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-card-image"></div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">Pate cho mèo vị cá ngừ và cá hồi 375g</div>
+                            <div class="product-card-price">Liên hệ</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-image"></div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">Hạt cho mèo con LaPaw Gourmet 1,5kg</div>
+                            <div class="product-card-price">Liên hệ</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-image"></div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">Súp thưởng cho mèo LaPaw Gourmet</div>
+                            <div class="product-card-price">Liên hệ</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-image"></div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">LaPaw Hạt kiểm soát cân nặng cho mèo 1,5kg</div>
+                            <div class="product-card-price">190.000đ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-article">
+            <div class="wrap-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                    <!-- Company Info -->
+                    <div class="footer-news">
+                        <a class="logo-footer" href="/">
+                            <img src="" alt="VSA PET CLINIC" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
+                        </a>
+                        <div class="name-footer">VSA PET CLINIC</div>
+                        <div class="info-footer">
+                            <p>
+                                <strong>"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"</strong><br><br>
+                                📍 Địa chỉ: 07 Cửu Long, Phường Hòa Hưng, TP. Hồ Chí Minh<br>
+                                📞 Điện thoại: 083 764 5555<br>
+                                ✉️ Email: vsapetclinic@gmail.com<br>
+                                🌐 Website: http://vsapetclinic.com/
+                            </p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="https://www.facebook.com/vsapetclinic" target="_blank">f</a></li>
+                            <li><a href="#">📱</a></li>
+                            <li><a href="#">▶️</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Policies -->
+                    <div class="footer-news">
+                        <h4 class="title-footer">CHÍNH SÁCH CÔNG TY</h4>
+                        <ul class="footer-ul">
+                            <li><a href="/chinh-sach-dat-lich">Chính sách đặt lịch</a></li>
+                            <li><a href="/chinh-sach-mua-hang">Chính sách mua hàng</a></li>
+                            <li><a href="/chinh-sach-giao-hang">Chính sách giao hàng</a></li>
+                            <li><a href="/chinh-sach-thanh-toan">Chính sách thanh toán</a></li>
+                        </ul>
+                        <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
+                            <div style="font-size: 40px;">🕐</div>
+                            <div>
+                                <div style="color: #FFE002; font-weight: 700; margin-bottom: 5px;">Giờ Mở Cửa</div>
+                                <span>08:00 - 20:00 (Mon - Sun)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="footer-news">
+                        <h4 class="title-footer">DANH MỤC</h4>
+                        <ul class="footer-ul">
+                            <li><a href="/">Trang chủ</a></li>
+                            <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                            <li><a href="/dich-vu">Dịch vụ</a></li>
+                            <li><a href="/san-pham">Sản phẩm</a></li>
+                            <li><a href="/album">Album</a></li>
+                            <li><a href="/tin-tuc">Tin tức</a></li>
+                            <li><a href="/lien-he">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-powered">
+            <div class="wrap-content">
+                <div>
+                    Copyright © <strong>VSA PET CLINIC</strong>. All rights reserved. Designed by Nina
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+
+    <script>
+        // Tab switching
+        function switchTab(event, tabId) {
+            // Remove active class from all buttons and contents
+            const buttons = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

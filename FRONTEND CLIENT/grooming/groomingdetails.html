@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ Thú Y - PURE PAW PET SHOP</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef8f0;
+            color: #333;
+        }
+
+        .wrap-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
+        }
+
+        .header-top {
+            background: rgba(28, 28, 28, 0.1);
+            padding: 10px 0;
+        }
+
+        .info-header {
+            color: #1C1C1C;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-header a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Navigation Menu */
+        .menu {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu .wrap-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .col-logo {
+            flex: 0 0 auto;
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-header img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        .ulmn {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ulmn > li > a {
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .ulmn > li > a:hover,
+        .ulmn > li > a.active {
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            color: #1C1C1C;
+        }
+
+        .search-res {
+            position: relative;
+        }
+
+        .icon-search {
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .icon-search:hover {
+            background: rgba(255, 224, 2, 0.2);
+        }
+
+        /* Breadcrumb */
+        .breadCrumbs {
+            background: #ffffff;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #FFB606;
+        }
+
+        .breadcrumb-item.active a {
+            color: #1C1C1C;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            margin-right: 10px;
+            color: #999;
+        }
+
+        /* Service Detail */
+        .service-detail {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Service Images */
+        .service-images {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e6f7ff 0%, #d0ebff 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #4A90E2;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .thumbnail {
+            height: 80px;
+            background: linear-gradient(135deg, #e6f7ff 0%, #d0ebff 100%);
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .thumbnail:hover {
+            border-color: #4A90E2;
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Service Info */
+        .service-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .service-title {
+            font-size: 2.2rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .service-rating {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stars {
+            color: #FFB606;
+            font-size: 1.2rem;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            color: #4A90E2;
+            font-weight: 700;
+        }
+
+        .service-description {
+            line-height: 1.8;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            color: #1C1C1C;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #4A90E2;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4A90E2;
+            border: 2px solid #4A90E2;
+        }
+
+        .btn-secondary:hover {
+            background: #4A90E2;
+            color: white;
+        }
+
+        /* Tabs */
+        .service-tabs {
+            margin-top: 40px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: #4A90E2;
+            border-bottom-color: #4A90E2;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Details Tab */
+        .detail-section {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .detail-section h3 {
+            color: #1C1C1C;
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+        }
+
+        .detail-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-section li {
+            margin-bottom: 10px;
+        }
+
+        /* Pricing Tab */
+        .pricing-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .pricing-table {
+            width: 100%;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .pricing-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .pricing-value {
+            font-weight: 700;
+            color: #4A90E2;
+            font-size: 1.1rem;
+        }
+
+        /* Reviews Tab */
+        .reviews-section {
+            max-width: 800px;
+        }
+
+        .rating-overview {
+            background: linear-gradient(135deg, #e6f7ff 0%, #d0ebff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #4A90E2;
+        }
+
+        .score-stars {
+            color: #FFB606;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .score-count {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .review-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: #1C1C1C;
+        }
+
+        .review-rating {
+            color: #FFB606;
+            margin-top: 5px;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .review-content {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Related Services */
+        .related-services {
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1C1C1C;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .services-carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 60px;
+        }
+
+        .services-grid {
+            display: flex;
+            gap: 25px;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: calc(25% - 19px);
+            flex-shrink: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card-image {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card-image img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .service-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1C1C1C;
+            margin-bottom: 10px;
+        }
+
+        .service-card-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #4A90E2;
+        }
+
+        /* Carousel Navigation */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-btn:disabled:hover {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .carousel-btn-prev {
+            left: 0;
+        }
+
+        .carousel-btn-next {
+            right: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1C1C1C;
+            color: #ffffff;
+            margin-top: 50px;
+        }
+
+        .footer-article {
+            padding: 50px 0 30px;
+        }
+
+        .footer-news {
+            margin-bottom: 30px;
+        }
+
+        .logo-footer img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .name-footer {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFE002;
+            margin-bottom: 15px;
+        }
+
+        .info-footer {
+            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .title-footer {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFE002;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFE002;
+        }
+
+        .footer-ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-ul a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .footer-ul a:hover {
+            color: #FFE002;
+            padding-left: 10px;
+        }
+
+        .footer-powered {
+            background: #000000;
+            padding: 20px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .social {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+
+        .social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: #1C1C1C;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .social a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
+        }
+
+        /* Scroll to Top */
+        .scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 182, 6, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scrollToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 182, 6, 0.6);
+        }
+
+        .scrollToTop::before {
+            content: "↑";
+            font-size: 24px;
+            color: #1C1C1C;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thumbnail-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .services-carousel-container {
+                padding: 0 50px;
+            }
+
+            .service-card {
+                min-width: calc(100% - 0px);
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .menu .wrap-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .ulmn {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .service-card {
+                min-width: calc(50% - 12.5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="wrap-content">
+                <div class="info-header">
+                    <div>
+                        <i>📍</i>
+                        <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
+                    </div>
+                    <div>
+                        <i>📞</i>
+                        <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="menu">
+        <div class="wrap-content">
+            <ul class="ulmn">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                <li><a href="/dich-vu">Dịch vụ</a></li>
+                <li><a href="/san-pham">Sản phẩm</a></li>
+            </ul>
+
+            <div class="col-logo">
+                <a class="logo-header" href="/">
+                    <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
+                </a>
+            </div>
+
+            <ul class="ulmn">
+                <li><a href="/album">Album</a></li>
+                <li><a href="/tin-tuc">Tin tức</a></li>
+                <li><a href="/lien-he">Liên hệ</a></li>
+                <li>
+                    <div class="search-res">
+                        <p class="icon-search">🔍</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadCrumbs">
+        <div class="wrap-content">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="service.html">Dịch vụ</a></li>
+                <li class="breadcrumb-item active"><a href="#">Dịch vụ Thú Y</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Service Detail -->
+    <div class="wrap-content">
+        <div class="service-detail">
+            <div class="service-detail-grid">
+                <!-- Service Images - 50% -->
+                <div class="service-images">
+                    <div class="main-image">
+                        <img src="/FRONTEND CLIENT/assets/Image-5.png" alt="Dịch Vụ Thú Y">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail">
+                            <img src="/FRONTEND CLIENT/assets/image-1.jpg" alt="Thumbnail 1">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="/FRONTEND CLIENT/assets/image-2.jpg" alt="Thumbnail 2">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="/FRONTEND CLIENT/assets/image-3.jpg" alt="Thumbnail 3">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="/FRONTEND CLIENT/assets/image-4.jpg" alt="Thumbnail 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Info - 50% -->
+                <div class="service-info">
+                    <h1 class="service-title">Dịch Vụ Thú Y</h1>
+                    
+                    <div class="service-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-text">(4.9/5 - 215 đánh giá)</span>
+                    </div>
+
+                    <div class="service-price">Từ 200.000đ</div>
+
+                    <p class="service-description">
+                        Dịch vụ khám và chăm sóc sức khỏe toàn diện cho thú cưng với đội ngũ bác sĩ thú y giàu kinh nghiệm, 
+                        trang thiết bị hiện đại và quy trình điều trị chuyên nghiệp. Chúng tôi cam kết mang đến sức khỏe tốt nhất 
+                        cho người bạn bốn chân của bạn.
+                    </p>
+
+                    <div class="service-features">
+                        <div class="feature-title">Các dịch vụ bao gồm:</div>
+                        <ul class="feature-list">
+                            <li>Khám tổng quát định kỳ</li>
+                            <li>Tiêm phòng vaccine đầy đủ</li>
+                            <li>Xét nghiệm máu, nước tiểu</li>
+                            <li>Siêu âm, X-quang chẩn đoán</li>
+                            <li>Điều trị bệnh lý nội khoa</li>
+                            <li>Phẫu thuật chuyên sâu</li>
+                            <li>Tư vấn dinh dưỡng & chăm sóc</li>
+                            <li>Dịch vụ cấp cứu 24/7</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="openBookingModal()">Đặt lịch khám ngay</button>
+                        <a href="tel:0837645555" class="btn btn-secondary">📞 Tư vấn miễn phí</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="service-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="switchTab(event, 'details')">Chi tiết dịch vụ</button>
+                    <button class="tab-button" onclick="switchTab(event, 'pricing')">Bảng giá</button>
+                    <button class="tab-button" onclick="switchTab(event, 'reviews')">Đánh giá</button>
+                </div>
+
+                <!-- Details Tab -->
+                <div id="details" class="tab-content active">
+                    <div class="detail-section">
+                        <h3>🏥 Khám Tổng Quát</h3>
+                        <p>Dịch vụ khám sức khỏe toàn diện cho thú cưng bao gồm:</p>
+                        <ul>
+                            <li>Kiểm tra thể trạng, cân nặng, nhiệt độ</li>
+                            <li>Khám tim mạch, hô hấp</li>
+                            <li>Kiểm tra da, lông, móng</li>
+                            <li>Khám răng miệng</li>
+                            <li>Đánh giá tình trạng sức khỏe tổng thể</li>
+                        </ul>
+
+                        <h3>💉 Tiêm Phòng Vaccine</h3>
+                        <p>Chương trình tiêm phòng đầy đủ theo lịch khuyến nghị:</p>
+                        <ul>
+                            <li>Vaccine 5 bệnh (DHPPiL) cho chó</li>
+                            <li>Vaccine 3 bệnh (FVRCP) cho mèo</li>
+                            <li>Vaccine dại (Rabies)</li>
+                            <li>Vaccine phòng bệnh Kennel Cough</li>
+                            <li>Tư vấn lịch tiêm chi tiết theo độ tuổi</li>
+                        </ul>
+
+                        <h3>🔬 Xét Nghiệm Chẩn Đoán</h3>
+                        <p>Trang thiết bị hiện đại giúp chẩn đoán chính xác:</p>
+                        <ul>
+                            <li>Xét nghiệm máu toàn phần</li>
+                            <li>Xét nghiệm sinh hóa máu</li>
+                            <li>Xét nghiệm nước tiểu, phân</li>
+                            <li>X-quang kỹ thuật số</li>
+                            <li>Siêu âm màu Doppler</li>
+                            <li>Nội soi dạ dày, đường tiêu hóa</li>
+                        </ul>
+
+                        <h3>⚕️ Điều Trị & Phẫu Thuật</h3>
+                        <p>Đội ngũ bác sĩ chuyên môn cao, giàu kinh nghiệm:</p>
+                        <ul>
+                            <li>Điều trị bệnh lý nội khoa</li>
+                            <li>Phẫu thuật triệt sản</li>
+                            <li>Phẫu thuật xương khớp</li>
+                            <li>Phẫu thuật u, polyp</li>
+                            <li>Điều trị răng, nha khoa thú y</li>
+                            <li>Chăm sóc hậu phẫu tận tình</li>
+                        </ul>
+
+                        <h3>🚑 Dịch Vụ Cấp Cứu 24/7</h3>
+                        <p>Luôn sẵn sàng hỗ trợ trong các trường hợp khẩn cấp:</p>
+                        <ul>
+                            <li>Tai nạn, chấn thương</li>
+                            <li>Ngộ độc thực phẩm</li>
+                            <li>Khó thở, suy hô hấp</li>
+                            <li>Co giật, mất ý thức</li>
+                            <li>Xuất huyết nội, ngoại</li>
+                            <li>Hotline cấp cứu: 083 764 5555</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pricing Tab -->
+                <div id="pricing" class="tab-content">
+                    <div class="pricing-section">
+                        <h3 style="margin-bottom: 20px; color: #1C1C1C;">💰 Bảng Giá Dịch Vụ</h3>
+                        
+                        <div class="pricing-table">
+                            <div class="pricing-row">
+                                <span class="pricing-label">Khám tổng quát</span>
+                                <span class="pricing-value">200.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Vaccine 5 bệnh (DHPPiL)</span>
+                                <span class="pricing-value">250.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Vaccine 3 bệnh (FVRCP)</span>
+                                <span class="pricing-value">200.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Vaccine dại (Rabies)</span>
+                                <span class="pricing-value">150.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Xét nghiệm máu toàn phần</span>
+                                <span class="pricing-value">350.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Xét nghiệm sinh hóa</span>
+                                <span class="pricing-value">500.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">X-quang (1 vị trí)</span>
+                                <span class="pricing-value">300.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Siêu âm màu</span>
+                                <span class="pricing-value">400.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Phẫu thuật triệt sản (Chó cái)</span>
+                                <span class="pricing-value">1.500.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Phẫu thuật triệt sản (Chó đực)</span>
+                                <span class="pricing-value">1.200.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Phẫu thuật triệt sản (Mèo cái)</span>
+                                <span class="pricing-value">1.200.000đ</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-label">Phẫu thuật triệt sản (Mèo đực)</span>
+                                <span class="pricing-value">900.000đ</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px; padding: 20px; background: #e6f7ff; border-radius: 10px;">
+                            <h3 style="color: #1C1C1C; margin-bottom: 15px;">📌 Lưu ý:</h3>
+                            <ul style="color: #333; line-height: 1.8;">
+                                <li>Giá trên chưa bao gồm chi phí thuốc và vật tư y tế</li>
+                                <li>Phẫu thuật bao gồm: thuốc mê, gây mê, chăm sóc hậu phẫu 1 ngày</li>
+                                <li>Miễn phí khám lại trong vòng 7 ngày sau điều trị</li>
+                                <li>Giảm 15% cho khách hàng đặt lịch online</li>
+                                <li>Tặng 1 lần khám miễn phí cho thú cưng trong ngày sinh nhật</li>
+                                <li>Gói khám sức khỏe định kỳ 6 tháng giảm 20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content">
+                    <div class="reviews-section">
+                        <div class="rating-overview">
+                            <div class="score-number">4.9</div>
+                            <div class="score-stars">★★★★★</div>
+                            <div class="score-count">215 đánh giá</div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">TH</div>
+                                    <div>
+                                        <div class="reviewer-name">Trần Hồng Nhung</div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                </div>
+                                <div class="review-date">2 ngày trước</div>
+                            </div>
+                            <div class="review-content">
+                                Bác sĩ rất tận tâm và chu đáo! Chó nhà mình bị viêm da, sau khi khám và điều trị ở đây đã khỏi hẳn. Phòng khám sạch sẽ, trang thiết bị hiện đại. Giá cả hợp lý, mình rất hài lòng!
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">NQ</div>
+                                    <div>
+                                        <div class="reviewer-name">Nguyễn Quốc Anh</div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                </div>
+                                <div class="review-date">5 ngày trước</div>
+                            </div>
+                            <div class="review-content">
+                                Đưa mèo đi triệt sản ở đây, mọi thứ đều rất tốt. Bác sĩ giải thích rõ ràng từng bước, chăm sóc sau mổ rất chu đáo. Bé hồi phục nhanh chóng. Cảm ơn đội ngũ Pure Paw Pet Shop rất nhiều!
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">PL</div>
+                                    <div>
+                                        <div class="reviewer-name">Phạm Lê Minh</div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                </div>
+                                <div class="review-date">1 tuần trước</div>
+                            </div>
+                            <div class="review-content">
+                                Lần đầu tiên mình tìm được một phòng khám thú y uy tín như vậy. Bác sĩ nhiệt tình, giải đáp mọi thắc mắc. Chó mình bị ngộ độc, được cấp cứu kịp thời và chăm sóc tận tình. Thật sự rất biết ơn!
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">VT</div>
+                                    <div>
+                                        <div class="reviewer-name">Võ Thị Thanh</div>
+                                        <div class="review-rating">★★★★★</div>
+                                    </div>
+                                </div>
+                                <div class="review-date">2 tuần trước</div>
+                            </div>
+                            <div class="review-content">
+                                Đội ngũ bác sĩ chuyên môn cao, thiết bị hiện đại. Đưa bé đi tiêm phòng và khám định kỳ đều rất yên tâm. Giá cả minh bạch, không phát sinh thêm chi phí. Rất đáng tin cậy!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Services -->
+            <div class="related-services">
+                <h2 class="section-title">Dịch vụ liên quan</h2>
+                <div class="services-carousel-container">
+                    <button class="carousel-btn carousel-btn-prev" onclick="slideCarousel(-1)">‹</button>
+                    <div class="services-grid" id="servicesCarousel">
+                        <div class="service-card" onclick="window.location.href='grooming-detail.html'">
+                            <div class="service-card-image">
+                                <img src="/FRONTEND CLIENT/assets/grooming_services/image 2.png" alt="Dịch vụ Cắt tỉa">
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-title">Dịch vụ Cắt tỉa</div>
+                                <div>Tìm hiểu thêm</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="window.location.href='tam-goi-detail.html'">
+                            <div class="service-card-image">
+                                <img src="/FRONTEND CLIENT/assets/grooming_services/image 3.png" alt="Dịch vụ Tắm gội">
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-title">Dịch vụ Tắm gội</div>
+                                <div>Tìm hiểu thêm</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="window.location.href='nha-tre-detail.html'">
+                            <div class="service-card-image">
+                                <img src="/FRONTEND CLIENT/assets/grooming_services/image 4.png" alt="Dịch vụ Nhà trẻ">
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-title">Dịch vụ Nhà trẻ</div>
+                                <div>Tìm hiểu thêm</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="window.location.href='huan-luyen-detail.html'">
+                            <div class="service-card-image">
+                                <img src="/FRONTEND CLIENT/assets/grooming_services/image 5.png" alt="Dịch vụ Huấn luyện">
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-title">Dịch vụ Huấn luyện</div>
+                                <div>Tìm hiểu thêm</div>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="window.location.href='dat-dao-detail.html'">
+                            <div class="service-card-image">
+                                <img src="/FRONTEND CLIENT/assets/grooming_services/image 6.png" alt="Dịch vụ Dắt dạo">
+                            </div>
+                            <div class="service-card-info">
+                                <div class="service-card-title">Dịch vụ Dắt dạo</div>
+                                <div>Tìm hiểu thêm</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" onclick="slideCarousel(1)">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-article">
+            <div class="wrap-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                    <div class="footer-news">
+                        <a class="logo-footer" href="/">
+                            <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
+                        </a>
+                        <div class="name-footer">PURE PAW PET SHOP</div>
+                        <div class="info-footer">
+                            <p>
+                                <strong>"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"</strong><br><br>
+                                📍 Địa chỉ: 07 Cửu Long, Phường Hòa Hưng, TP. Hồ Chí Minh<br>
+                                📞 Điện thoại: 083 764 5555<br>
+                                ✉️ Email: info@purepaw.com<br>
+                                🌐 Website: http://purepaw.com/
+                            </p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="https://www.facebook.com/purepawpetshop" target="_blank">f</a></li>
+                            <li><a href="#">📱</a></li>
+                            <li><a href="#">▶️</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-news">
+                        <h4 class="title-footer">CHÍNH SÁCH CÔNG TY</h4>
+                        <ul class="footer-ul">
+                            <li><a href="/chinh-sach-dat-lich">Chính sách đặt lịch</a></li>
+                            <li><a href="/chinh-sach-mua-hang">Chính sách mua hàng</a></li>
+                            <li><a href="/chinh-sach-giao-hang">Chính sách giao hàng</a></li>
+                            <li><a href="/chinh-sach-thanh-toan">Chính sách thanh toán</a></li>
+                        </ul>
+                        <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
+                            <div style="font-size: 40px;">🕐</div>
+                            <div>
+                                <div style="color: #FFE002; font-weight: 700; margin-bottom: 5px;">Giờ Mở Cửa</div>
+                                <span>08:00 - 20:00 (Mon - Sun)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-news">
+                        <h4 class="title-footer">DANH MỤC</h4>
+                        <ul class="footer-ul">
+                            <li><a href="/">Trang chủ</a></li>
+                            <li><a href="/gioi-thieu">Giới thiệu</a></li>
+                            <li><a href="service.html">Dịch vụ</a></li>
+                            <li><a href="/san-pham">Sản phẩm</a></li>
+                            <li><a href="/album">Album</a></li>
+                            <li><a href="/tin-tuc">Tin tức</a></li>
+                            <li><a href="/lien-he">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-powered">
+            <div class="wrap-content">
+                <div>
+                    Copyright © <strong>PURE PAW PET SHOP</strong>. All rights reserved. Designed by Nina
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+
+    <script>
+        function switchTab(event, tabId) {
+            const buttons = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function openBookingModal() {
+            window.location.href = 'service.html#booking';
+        }
+
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.scrollToTop').style.display = 'none';
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const carousel = document.getElementById('servicesCarousel');
+        const cards = carousel.querySelectorAll('.service-card');
+        const totalCards = cards.length;
+        const visibleCards = 4;
+        const maxSlide = totalCards - visibleCards;
+
+        function slideCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide > maxSlide) currentSlide = maxSlide;
+            
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 25;
+            const translateX = -(currentSlide * (cardWidth + gap));
+            
+            carousel.style.transform = `translateX(${translateX}px)`;
+            
+            updateCarouselButtons();
+        }
+
+        function updateCarouselButtons() {
+            const prevBtn = document.querySelector('.carousel-btn-prev');
+            const nextBtn = document.querySelector('.carousel-btn-next');
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === maxSlide;
+        }
+
+        updateCarouselButtons();
+
+        window.addEventListener('resize', function() {
+            currentSlide = 0;
+            carousel.style.transform = 'translateX(0)';
+            updateCarouselButtons();
+        });
+    </script>
+</body>
+</html>
