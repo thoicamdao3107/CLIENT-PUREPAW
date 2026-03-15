@@ -1,1251 +1,760 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dịch Vụ Grooming - Pure Paw Pet Shop</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dịch Vụ - Pure Paw Pet Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fef8f0;
-            color: #333;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
-        }
-
-        .header-top {
-            background: rgba(28, 28, 28, 0.1);
-            padding: 10px 0;
-        }
-
-        .wrap-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .info-header {
-            color: #1C1C1C;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .info-header a {
-            color: #1C1C1C;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Navigation Menu */
-        .menu {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .menu .wrap-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
-        }
-
-        .logo-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-header img {
-            max-height: 80px;
-            width: auto;
-        }
-
-        .ulmn {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .ulmn > li > a {
-            color: #1C1C1C;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: block;
-        }
-
-        .ulmn > li > a:hover,
-        .ulmn > li > a.active {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            color: #1C1C1C;
-        }
-
-        /* Search */
-        .search-res {
-            position: relative;
-        }
-
-        .icon-search {
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .icon-search:hover {
-            background: rgba(255, 224, 2, 0.2);
-        }
-
-        /* Breadcrumb */
-        .breadCrumbs {
-            background: #ffffff;
-            padding: 15px 0;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .breadcrumb {
-            list-style: none;
-            display: flex;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .breadcrumb-item {
-            color: #666;
-        }
-
-        .breadcrumb-item a {
-            color: #666;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .breadcrumb-item a:hover {
-            color: #FFB606;
-        }
-
-        .breadcrumb-item.active a {
-            color: #1C1C1C;
-            font-weight: 600;
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            margin-right: 10px;
-            color: #999;
-        }
-       
-
-/* ==================== FOOTER STYLES ==================== */
-.footer {
-    background: #1C1C1C;
-    color: #ffffff;
-    margin-top: 50px;
+:root{
+  --yellow:#FFD600;
+  --yellow-dark:#C9A800;
+  --yellow-light:#FFF8CC;
+  --black:#181818;
+  --gray-900:#2A2A2A;
+  --gray-700:#444;
+  --gray-500:#777;
+  --gray-200:#E8E8E8;
+  --gray-100:#F5F5F0;
+  --white:#ffffff;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --radius-xl:32px;
 }
 
-.footer-article {
-    padding: 50px 0 30px;
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF9F6;
+  color:var(--black);
+  -webkit-font-smoothing:antialiased;
 }
 
-.footer-news {
-    margin-bottom: 30px;
+/* ═══ TOP BAR ═══ */
+.topbar{background:var(--black);padding:10px 0}
+.topbar-inner{
+  max-width:1240px;margin:0 auto;padding:0 32px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+}
+.topbar span,.topbar a{color:#aaa;font-size:13px;text-decoration:none;display:flex;align-items:center;gap:6px}
+.topbar a:hover{color:var(--yellow)}
+.topbar-dot{color:#444}
+
+/* ═══ NAV ═══ */
+.nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+.nav-inner{
+  max-width:1240px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;height:68px;
+}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{
+  color:var(--gray-700);text-decoration:none;font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:var(--radius-sm);transition:all .2s;
+}
+.nav-links a:hover{background:var(--yellow-light);color:var(--black)}
+.nav-links a.active{background:var(--yellow);color:var(--black)}
+.logo-text{
+  font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:.3px;
+  color:var(--black);display:flex;align-items:center;gap:10px;text-decoration:none;
+}
+.logo-paw{
+  width:38px;height:38px;background:var(--yellow);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
 }
 
-.logo-footer img {
-    max-width: 200px;
-    margin-bottom: 20px;
+/* ═══ HERO BANNER ═══ */
+.hero{background:var(--black);padding:80px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 110%,rgba(255,214,0,.13) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,214,0,.12);border:1px solid rgba(255,214,0,.25);
+  color:var(--yellow);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 16px;border-radius:999px;margin-bottom:28px;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5vw,4rem);
+  color:var(--white);font-weight:400;line-height:1.1;margin-bottom:20px;
+}
+.hero h1 em{color:var(--yellow);font-style:italic}
+.hero p{color:#999;font-size:1rem;max-width:520px;margin:0 auto;line-height:1.7}
+
+/* ═══ SERVICES SECTION ═══ */
+.section{max-width:1240px;margin:0 auto;padding:80px 32px}
+.section-header{margin-bottom:52px}
+.section-header h2{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);
+  color:var(--black);font-weight:400;line-height:1.2;margin-bottom:10px;
+}
+.section-header p{color:var(--gray-500);font-size:.95rem;max-width:520px;line-height:1.7}
+.section-line{width:40px;height:3px;background:var(--yellow);border-radius:2px;margin-bottom:16px}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+.card{
+  background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
+  border:2px solid transparent;box-shadow:0 2px 12px rgba(0,0,0,.06);
+  transition:border-color .25s,transform .28s,box-shadow .28s;cursor:pointer;
+}
+.card:hover{border-color:var(--yellow);transform:translateY(-6px);box-shadow:0 16px 40px rgba(255,214,0,.18)}
+.card-img{width:100%;height:210px;overflow:hidden;background:var(--gray-100);position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+.card:hover .card-img img{transform:scale(1.06)}
+.card-img-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:3rem;background:var(--gray-100);
+}
+.card-body{padding:24px 26px 26px}
+.card-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--yellow-dark);margin-bottom:10px;display:block}
+.card-title{font-size:1.05rem;font-weight:600;color:var(--black);margin-bottom:10px}
+.card-desc{font-size:.88rem;color:var(--gray-500);line-height:1.65;margin-bottom:20px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid var(--gray-200)}
+.link-more{font-size:.85rem;font-weight:500;color:var(--gray-500);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s}
+.link-more:hover{color:var(--black)}
+.btn-book{
+  background:var(--yellow);color:var(--black);padding:9px 20px;border:none;
+  border-radius:999px;font-size:.85rem;font-weight:600;cursor:pointer;
+  transition:all .2s;font-family:inherit;
+}
+.btn-book:hover{background:#FFE535;transform:scale(1.04)}
+
+/* ═══ PACKAGES SECTION ═══ */
+.packages-wrap{background:var(--black);padding:80px 32px;position:relative;overflow:hidden}
+.packages-wrap::after{
+  content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  background:rgba(255,214,0,.05);bottom:-200px;right:-100px;pointer-events:none;
+}
+.packages-inner{max-width:1000px;margin:0 auto}
+.pkg-header{text-align:center;margin-bottom:56px}
+.pkg-header .eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--yellow);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;
+}
+.pkg-header h2{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);
+  color:var(--white);font-weight:400;margin-bottom:14px;
+}
+.pkg-header p{color:#888;font-size:.95rem;max-width:480px;margin:0 auto;line-height:1.7}
+
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+/* Package cards */
+.pkg-card{border-radius:var(--radius-xl);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.pkg-card:hover{transform:translateY(-6px)}
+
+/* ── BASIC card — nền trắng kem, viền vàng đậm ── */
+.pkg-card.basic{
+  background:#FFFEF5;
+  border:2px solid #FFD600;
+}
+.pkg-card.basic:hover{
+  box-shadow:0 20px 56px rgba(255,214,0,.3);
+  border-color:#C9A800;
 }
 
-.name-footer {
-    font-size: 20px;
-    font-weight: 700;
-    color: #FFE002;
-    margin-bottom: 15px;
+.pkg-card.premium{background:#181818;border:2px solid var(--yellow)}
+.pkg-card.premium:hover{box-shadow:0 20px 60px rgba(255,214,0,.3)}
+
+/* pkg header */
+.pkg-head{padding:36px 36px 28px;position:relative}
+.pkg-card.basic .pkg-head{border-bottom:1px solid #F0E566}
+.pkg-card.premium .pkg-head{border-bottom:1px solid #2A2A2A}
+
+.pkg-badge{
+  position:absolute;top:28px;right:28px;background:var(--yellow);color:var(--black);
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;
 }
 
-.info-footer {
-    line-height: 1.8;
-    font-size: 14px;
-    margin-bottom: 20px;
+/* ── Icon box ── */
+.pkg-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
 }
+.pkg-card.basic .pkg-icon{background:#FFF3A3;border:1px solid #E6C200}
+.pkg-card.premium .pkg-icon{background:#2A2800;border:1px solid #4A4000}
+.pkg-icon svg{display:block}
 
-.title-footer {
-    font-size: 18px;
-    font-weight: 700;
-    color: #FFE002;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #FFE002;
+.pkg-name{font-size:1.5rem;font-weight:700;margin-bottom:5px}
+.pkg-card.basic .pkg-name{color:#181818}
+.pkg-card.premium .pkg-name{color:#ffffff}
+
+.pkg-sub{font-size:.82rem;margin-bottom:22px}
+.pkg-card.basic .pkg-sub{color:#666}
+.pkg-card.premium .pkg-sub{color:#aaa}
+
+.pkg-price-row{display:flex;align-items:baseline;gap:4px}
+.pkg-price{font-size:2.4rem;font-weight:700;letter-spacing:-1px}
+.pkg-card.basic .pkg-price{color:#181818}
+.pkg-card.premium .pkg-price{color:var(--yellow)}
+
+.pkg-unit{font-size:.85rem;font-weight:500}
+.pkg-card.basic .pkg-unit{color:#666}
+.pkg-card.premium .pkg-unit{color:#aaa}
+
+.pkg-duration{font-size:.8rem;margin-top:6px}
+.pkg-card.basic .pkg-duration{color:#888}
+.pkg-card.premium .pkg-duration{color:#666}
+
+/* pkg features */
+.pkg-features{padding:26px 36px}
+.pkg-features ul{list-style:none}
+.pkg-features li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;font-size:.9rem;line-height:1.5;
 }
+.pkg-card.basic .pkg-features li{color:#333;border-bottom:1px solid #EEE099}
+.pkg-card.premium .pkg-features li{color:#ccc;border-bottom:1px solid #2A2A2A}
+.pkg-features li:last-child{border-bottom:none}
 
-.footer-ul {
-    list-style: none;
-    padding: 0;
+.check{
+  width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
 }
+.pkg-card.basic .check{background:#FFE535}
+.pkg-card.premium .check{background:#2A2800}
+.check svg{display:block}
 
-.footer-ul li {
-    margin-bottom: 10px;
+/* pkg cta */
+.pkg-cta{padding:10px 36px 36px}
+.pkg-btn{
+  width:100%;padding:16px;border-radius:var(--radius-md);
+  font-size:.95rem;font-weight:600;cursor:pointer;
+  transition:all .25s;font-family:inherit;border:none;letter-spacing:.2px;
 }
-
-.footer-ul a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 5px 0;
+.pkg-card.basic .pkg-btn{
+  background:#FFD600;border:none;color:#181818;
 }
+.pkg-card.basic .pkg-btn:hover{background:#FFE535;transform:scale(1.02)}
+.pkg-card.premium .pkg-btn{background:var(--yellow);color:var(--black)}
+.pkg-card.premium .pkg-btn:hover{background:#FFE535;transform:scale(1.02)}
 
-.footer-ul a:hover {
-    color: #FFE002;
-    padding-left: 10px;
+/* ═══ GALLERY ═══ */
+.gallery-wrap{max-width:1240px;margin:0 auto;padding:80px 32px}
+.gallery-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px}
+.gallery-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--black);font-weight:400}
+.gallery-header p{color:var(--gray-500);font-size:.9rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:16px}
+.gallery-item{border-radius:var(--radius-lg);overflow:hidden;cursor:pointer}
+.gallery-item:first-child{grid-row:span 2}
+.gallery-img{width:100%;height:100%;min-height:200px;background:var(--gray-100);overflow:hidden;position:relative}
+.gallery-item:first-child .gallery-img{min-height:430px}
+.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery-item:hover .gallery-img img{transform:scale(1.06)}
+.gallery-placeholder{width:100%;height:100%;min-height:inherit;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--gray-100)}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--black);padding:60px 32px 0}
+.footer-inner{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:56px;
+  padding-bottom:48px;border-bottom:1px solid #222;
 }
-
-.footer-powered {
-    background: #000000;
-    padding: 20px 0;
-    text-align: center;
-    color: #ffffff;
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--white);display:flex;align-items:center;gap:10px;margin-bottom:16px;text-decoration:none}
+.footer-logo .paw{width:36px;height:36px;background:var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.footer-desc{color:#666;font-size:.85rem;line-height:1.75;margin-bottom:20px}
+.footer-contact{font-size:.83rem;color:#555;line-height:2}
+.footer-contact span{display:flex;align-items:center;gap:8px}
+.footer-col h4{color:var(--yellow);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:#666;text-decoration:none;font-size:.875rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-hours{background:#141414;border-radius:var(--radius-md);padding:16px 18px;margin-top:18px}
+.footer-hours .hours-label{color:var(--yellow);font-size:.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.footer-hours .hours-val{color:#bbb;font-size:.9rem;font-weight:500}
+.footer-bottom{max-width:1240px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-copy{color:#444;font-size:.8rem}
+.footer-socials{display:flex;gap:10px}
+.social-btn{
+  width:34px;height:34px;border-radius:50%;border:1px solid #2A2A2A;color:#666;
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+  text-decoration:none;transition:all .2s;cursor:pointer;
 }
+.social-btn:hover{border-color:var(--yellow);color:var(--yellow)}
 
-/* ==================== SOCIAL BUTTONS ==================== */
-.social {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 0 0;
+/* ═══ MODAL ═══ */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);overflow-y:auto;padding:24px}
+.modal-box{background:var(--white);max-width:480px;margin:auto;border-radius:var(--radius-xl);padding:40px;position:relative;animation:modalIn .3s cubic-bezier(.34,1.56,.64,1)}
+@keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:50%;background:var(--gray-100);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gray-500);transition:all .2s}
+.modal-close:hover{background:var(--gray-200)}
+.modal-service-tag{display:inline-flex;align-items:center;gap:6px;background:var(--yellow-light);color:var(--yellow-dark);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.modal-box h2{font-family:'DM Serif Display',serif;font-size:1.6rem;font-weight:400;margin-bottom:24px}
+.modal-form{display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:.8rem;font-weight:600;color:var(--gray-700);letter-spacing:.5px}
+.field input,.field select,.field textarea{padding:11px 14px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:.9rem;font-family:inherit;color:var(--black);transition:border-color .2s;background:var(--white);outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--yellow)}
+.field textarea{resize:vertical;min-height:80px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{background:var(--yellow);color:var(--black);padding:14px;border:none;border-radius:var(--radius-md);font-size:.95rem;font-weight:600;cursor:pointer;margin-top:6px;font-family:inherit;transition:all .2s}
+.btn-submit:hover{background:#FFE535;transform:scale(1.01)}
+
+/* ═══ SCROLL TO TOP ═══ */
+.scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--yellow);color:var(--black);border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(255,214,0,.4);transition:transform .2s;z-index:500}
+.scroll-top:hover{transform:scale(1.1)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .pkg-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px}
 }
-
-.social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-    border-radius: 50%;
-    transition: all 0.3s ease;
+@media(max-width:768px){
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item:first-child{grid-row:span 1}
+  .gallery-item:first-child .gallery-img{min-height:200px}
+  .nav-inner{padding:0 20px}
+  .section,.gallery-wrap,.packages-wrap{padding:56px 20px}
+  .footer-inner{grid-template-columns:1fr;gap:36px}
+  .hero{padding:56px 20px 52px}
 }
-
-.social a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
+@media(max-width:600px){
+  .nav-links{gap:0}
+  .nav-links a{font-size:12px;padding:6px 10px}
+  .gallery-grid{grid-template-columns:1fr}
 }
-
-.social img {
-    width: 20px;
-    height: 20px;
-}
-
-/* ==================== SCROLL TO TOP ==================== */
-.scrollToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(255, 182, 6, 0.4);
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-.scrollToTop:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 182, 6, 0.6);
-}
-
-.scrollToTop::before {
-    content: "↑";
-    font-size: 24px;
-    color: #1C1C1C;
-    font-weight: 700;
-}
-
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
-    .ulmn {
-        gap: 15px;
-    }
-
-    .ulmn > li > a {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 991px) {
-    .menu {
-        display: none;
-    }
-
-    .menu-res {
-        display: block;
-        background: #ffffff;
-        padding: 15px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-}
-
-@media (max-width: 768px) {
-    .menu .wrap-content {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .ulmn {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .footer-article > div > div {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 480px) {
-    .wrap-content {
-        padding: 0 15px;
-    }
-}
-
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            color: #1C1C1C;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* Services Section */
-        .services-section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .section-title h2 {
-            font-size: 1.8rem;
-            color: #1C1C1C;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #3B3B3B;
-            margin-bottom: 50px;
-            font-size: 1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card.highlight {
-            border: 3px solid #FFB606;
-            background: linear-gradient(135deg, #FFFEF5 0%, #ffffff 100%);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #FFB606 0%, #FFE002 100%);
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-content {
-            padding: 25px;
-        }
-
-        .service-title {
-            font-size: 1.3rem;
-            color: #1C1C1C;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .service-description {
-            color: #3B3B3B;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .service-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .read-more {
-            color: #1C1C1C;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .read-more:hover {
-            color: #FFB606;
-        }
-
-        .booking-btn {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            color: #1C1C1C;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(255, 182, 6, 0.3);
-        }
-
-        .booking-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.5);
-        }
-
-        /* Grooming Packages Section */
-        .packages-section {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .package-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .package-card.basic {
-            border-top: 5px solid #B28228;
-        }
-
-        .package-card.advanced {
-            border-top: 5px solid #FFE002;
-        }
-
-        .package-header {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .package-card.basic .package-header {
-            background: linear-gradient(135deg, #FFF9E6 0%, #FFECB3 100%);
-        }
-
-        .package-card.advanced .package-header {
-            background: linear-gradient(135deg, #FFFEF5 0%, #FFE082 100%);
-        }
-
-        .package-name {
-            font-size: 1.8rem;
-            color: #1C1C1C;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .package-price {
-            font-size: 2.5rem;
-            color: #FFB606;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .package-duration {
-            color: #3B3B3B;
-            font-size: 0.9rem;
-        }
-
-        .package-features {
-            padding: 30px;
-        }
-
-        .package-features ul {
-            list-style: none;
-        }
-
-        .package-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #3B3B3B;
-        }
-
-        .package-features li:before {
-            content: "✓";
-            color: #FFB606;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .package-footer {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .package-btn {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            color: #1C1C1C;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.3);
-        }
-
-        .package-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 182, 6, 0.5);
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .gallery-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .gallery-title h2 {
-            font-size: 1.8rem;
-            color: #1C1C1C;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .gallery-title p {
-            color: #3B3B3B;
-            font-size: 1.1rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #FFB606 0%, #FFE002 100%);
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .gallery-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-
-            .services-grid,
-            .packages-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .package-price {
-                font-size: 2rem;
-            }
-        }
-
-        /* Modal Styles - FIXED */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s;
-            overflow-y: auto; /* Cho phép cuộn modal */
-            padding: 20px 0; /* Thêm padding trên/dưới */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 20px auto; /* Thay đổi từ 5% auto */
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.3s;
-            max-height: calc(100vh - 40px); /* Giới hạn chiều cao */
-            overflow-y: auto; /* Cho phép cuộn nội dung */
-            position: relative; /* Để có thể cuộn được */
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 20px;
-            position: sticky; /* Nút đóng luôn hiển thị */
-            top: 0;
-            z-index: 1;
-        }
-
-        .close:hover {
-            color: #000;
-        }
-
-        .modal h2 {
-            color: #1C1C1C;
-            margin-bottom: 20px;
-            clear: both; /* Clear float của nút close */
-            padding-top: 10px;
-        }
-
-        .modal form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .modal input,
-        .modal select,
-        .modal textarea {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .modal input:focus,
-        .modal select:focus,
-        .modal textarea:focus {
-            outline: none;
-            border-color: #FFB606;
-        }
-
-        .modal .submit-btn {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            color: #1C1C1C;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .modal .submit-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(255, 182, 6, 0.4);
-        }
-
-        /* Responsive cho modal */
-        @media (max-width: 768px) {
-            .modal {
-                padding: 10px 0;
-            }
-            
-            .modal-content {
-                margin: 10px auto;
-                padding: 30px 20px;
-                width: 95%;
-                max-height: calc(100vh - 20px);
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
-    <!-- Header -->
-<header class="header">
-    <div class="header-top">
-        <div class="wrap-content">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                <div class="info-header">
-                    <i>📍</i>
-                    <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
-                </div>
-                <div class="info-header">
-                    <i>📞</i>
-                    <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
-                </div>
-            </div>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📍 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
+    <span><span class="topbar-dot">|</span> 📞 <a href="tel:0837645555">083 764 5555</a> &nbsp;·&nbsp; 🕐 08:00 – 20:00</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <ul class="nav-links">
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="/gioi-thieu">Giới thiệu</a></li>
+      <li><a href="/dich-vu" class="active">Dịch vụ</a></li>
+      <li><a href="/san-pham">Sản phẩm</a></li>
+    </ul>
+    <a href="/" class="logo-text">
+      <div class="logo-paw">🐾</div>
+      Pure Paw
+    </a>
+    <ul class="nav-links">
+      <li><a href="/album">Album</a></li>
+      <li><a href="/tin-tuc">Tin tức</a></li>
+      <li><a href="/lien-he">Liên hệ</a></li>
+      <li><a href="#">🔍</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">✦ Pure Paw Pet Shop</div>
+  <h1>Chăm sóc thú cưng<br>với <em>tất cả yêu thương</em></h1>
+  <p>Đội ngũ chuyên gia giàu kinh nghiệm, trang thiết bị hiện đại — để thú cưng của bạn luôn khỏe mạnh và hạnh phúc.</p>
+</div>
+
+<!-- Services -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-line"></div>
+    <h2>Dịch vụ chuyên nghiệp</h2>
+    <p>Chúng tôi cung cấp đầy đủ các dịch vụ chăm sóc toàn diện cho thú cưng của bạn.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="card" onclick="openModal('Dịch vụ thú y')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 1.png" alt="Thú y"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>🩺</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Sức khỏe</span>
+        <h3 class="card-title">Dịch vụ thú y</h3>
+        <p class="card-desc">Khám và chăm sóc sức khỏe toàn diện với đội ngũ bác sĩ chuyên nghiệp. Tiêm phòng, xét nghiệm, điều trị và phẫu thuật.</p>
+        <div class="card-footer">
+          <a href="/grooming/groomingdetails.html" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Dịch vụ thú y')">Đặt lịch</button>
         </div>
+      </div>
     </div>
-</header>
 
-<!-- Navigation Menu -->
-<nav class="menu">
-    <div class="wrap-content">
-        <ul class="ulmn">
-            <li><a href="/">Trang chủ</a></li>
-            <li><a href="/gioi-thieu">Giới thiệu</a></li>
-            <li><a href="/dich-vu">Dịch vụ</a></li>
-            <li><a href="/san-pham">Sản phẩm</a></li>
-        </ul>
-
-        <div class="col-logo">
-            <a class="logo-header" href="/">
-                <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
-            </a>
+    <div class="card" onclick="openModal('Dắt dạo')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 2.png" alt="Dắt dạo"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>🦮</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Vận động</span>
+        <h3 class="card-title">Dắt dạo</h3>
+        <p class="card-desc">Dịch vụ dắt chó đi dạo chuyên nghiệp, giúp thú cưng vận động, giao lưu và khám phá thế giới trong môi trường an toàn.</p>
+        <div class="card-footer">
+          <a href="#" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Dắt dạo')">Đặt lịch</button>
         </div>
+      </div>
+    </div>
 
-        <ul class="ulmn">
-            <li><a href="/album">Album</a></li>
-            <li><a href="/tin-tuc">Tin tức</a></li>
-            <li><a href="/lien-he">Liên hệ</a></li>
+    <div class="card" onclick="openModal('Tắm gội')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 3.png" alt="Tắm gội"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>🛁</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Làm đẹp</span>
+        <h3 class="card-title">Tắm gội</h3>
+        <p class="card-desc">Dịch vụ tắm gội cao cấp với quy trình chuẩn quốc tế, sản phẩm chăm sóc da và lông phù hợp với từng giống chó mèo.</p>
+        <div class="card-footer">
+          <a href="#" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Tắm gội')">Đặt lịch</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('Huấn luyện')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 4.png" alt="Huấn luyện"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>🎓</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Huấn luyện</span>
+        <h3 class="card-title">Huấn luyện</h3>
+        <p class="card-desc">Chương trình cơ bản và nâng cao giúp thú cưng ngoan ngoãn, thông minh và có kỹ năng cần thiết trong cuộc sống.</p>
+        <div class="card-footer">
+          <a href="#" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Huấn luyện')">Đặt lịch</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('Cắt móng')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 5.png" alt="Cắt móng"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>✂️</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Chăm sóc</span>
+        <h3 class="card-title">Cắt móng</h3>
+        <p class="card-desc">Dịch vụ cắt tỉa móng chuyên nghiệp, an toàn — giúp thú cưng thoải mái khi di chuyển và tránh các vấn đề về móng.</p>
+        <div class="card-footer">
+          <a href="#" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Cắt móng')">Đặt lịch</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('Nhà trẻ')">
+      <div class="card-img">
+        <img src="/FRONTEND CLIENT/assets/grooming_services/image 6.png" alt="Nhà trẻ"
+          onerror="this.parentNode.innerHTML='<div class=card-img-placeholder>🏡</div>'">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Trông giữ</span>
+        <h3 class="card-title">Nhà trẻ</h3>
+        <p class="card-desc">Chăm sóc ban ngày trong môi trường an toàn và vui vẻ, với các hoạt động giải trí và giao lưu cùng các bạn thú cưng.</p>
+        <div class="card-footer">
+          <a href="#" class="link-more">Tìm hiểu thêm →</a>
+          <button class="btn-book" onclick="event.stopPropagation();openModal('Nhà trẻ')">Đặt lịch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Packages -->
+<div class="packages-wrap">
+  <div class="packages-inner">
+    <div class="pkg-header">
+      <div class="eyebrow">✦ Gói dịch vụ</div>
+      <h2>Grooming toàn diện</h2>
+      <p>Chọn gói phù hợp với nhu cầu. Mỗi gói được thiết kế để mang lại trải nghiệm chăm sóc tốt nhất cho thú cưng.</p>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- Basic -->
+      <div class="pkg-card basic">
+        <div class="pkg-head">
+          <!-- SVG icon: paw / scissors (basic grooming) -->
+          <div class="pkg-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.5 11C8.433 11 10 9.433 10 7.5S8.433 4 6.5 4 3 5.567 3 7.5 4.567 11 6.5 11Z" fill="#FFD600" opacity=".9"/>
+              <path d="M17.5 11C19.433 11 21 9.433 21 7.5S19.433 4 17.5 4 14 5.567 14 7.5s1.567 3 3.5 3Z" fill="#FFD600" opacity=".9"/>
+              <path d="M3.5 17C5.157 17 6.5 15.657 6.5 14S5.157 11 3.5 11 .5 12.343.5 14 1.843 17 3.5 17Z" fill="#FFD600" opacity=".6"/>
+              <path d="M20.5 17c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3Z" fill="#FFD600" opacity=".6"/>
+              <path d="M12 22c3.314 0 6-2.239 6-5 0-1.5-.9-2.8-2.3-3.7-.8-.5-1.5-1.3-1.7-2.3H10c-.2 1-.9 1.8-1.7 2.3C6.9 14.2 6 15.5 6 17c0 2.761 2.686 5 6 5Z" fill="#FFD600"/>
+            </svg>
+          </div>
+          <div class="pkg-name">Gói Basic</div>
+          <div class="pkg-sub">Chăm sóc cơ bản, chất lượng đảm bảo</div>
+          <div class="pkg-price-row">
+            <span class="pkg-price">499.000</span>
+            <span class="pkg-unit">đ</span>
+          </div>
+          <div class="pkg-duration">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;margin-right:4px;vertical-align:middle">
+              <circle cx="12" cy="12" r="9" stroke="#888" stroke-width="2"/>
+              <path d="M12 7v5l3 3" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            60 – 90 phút
+          </div>
+        </div>
+        <div class="pkg-features">
+          <ul>
             <li>
-                <div class="search-res">
-                    <p class="icon-search">
-                        🔍
-                    </p>
-                </div>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Tắm gội với sản phẩm cao cấp
             </li>
-        </ul>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Sấy khô và chải lông
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Cắt tỉa móng
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Vệ sinh tai
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Cắt tỉa lông cơ bản
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Nước hoa thú cưng
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Kiểm tra sức khỏe cơ bản
+            </li>
+          </ul>
+        </div>
+        <div class="pkg-cta">
+          <button class="pkg-btn" onclick="openModal('Gói Basic')">Đặt lịch ngay</button>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="pkg-card premium">
+        <div class="pkg-head">
+          <span class="pkg-badge">⭐ Phổ biến nhất</span>
+          <!-- SVG icon: sparkle / star (premium spa) -->
+          <div class="pkg-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2Z" fill="#C9A800"/>
+              <path d="M12 5l1.8 5.5H19l-4.6 3.4 1.8 5.5L12 16l-4.2 3.4 1.8-5.5L5 11.5h5.2L12 5Z" fill="#FFD600"/>
+            </svg>
+          </div>
+          <div class="pkg-name">Gói Advanced</div>
+          <div class="pkg-sub">Spa toàn diện — thư giãn tuyệt đối</div>
+          <div class="pkg-price-row">
+            <span class="pkg-price">899.000</span>
+            <span class="pkg-unit">đ</span>
+          </div>
+          <div class="pkg-duration" style="color:#aaa;font-size:.8rem;margin-top:6px">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;margin-right:4px;vertical-align:middle">
+              <circle cx="12" cy="12" r="9" stroke="#aaa" stroke-width="2"/>
+              <path d="M12 7v5l3 3" stroke="#aaa" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            120 – 150 phút
+          </div>
+        </div>
+        <div class="pkg-features">
+          <ul>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Tất cả trong gói Basic
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Tạo kiểu lông theo yêu cầu
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Spa thư giãn với tinh dầu
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Massage thư giãn
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Vệ sinh răng miệng chuyên sâu
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Nhuộm lông an toàn (tùy chọn)
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Chụp ảnh lưu niệm
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Tặng băng đô / nơ xinh
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C9A800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              </span>Tư vấn chăm sóc tại nhà
+            </li>
+          </ul>
+        </div>
+        <div class="pkg-cta">
+          <button class="pkg-btn" onclick="openModal('Gói Advanced')">Đặt lịch ngay</button>
+        </div>
+      </div>
+
     </div>
-</nav>    
+  </div>
+</div>
 
-    <!-- Header -->
-    <div class="header">
-        <h1>DỊCH VỤ CỦA CHÚNG TÔI</h1>
+<!-- Gallery -->
+<div class="gallery-wrap">
+  <div class="gallery-header">
+    <div>
+      <div class="section-line"></div>
+      <h2>Bộ sưu tập<br>đầy yêu thương</h2>
     </div>
+    <p>Râu, đuôi và<br>đôi mắt rạng rỡ 🐶</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><div class="gallery-img"><img src="/FRONTEND CLIENT/assets/Image-1.png" alt="Pet 1" onerror="this.parentNode.innerHTML='<div class=gallery-placeholder>🐱</div>'"></div></div>
+    <div class="gallery-item"><div class="gallery-img"><img src="/FRONTEND CLIENT/assets/Image-2.png" alt="Pet 2" onerror="this.parentNode.innerHTML='<div class=gallery-placeholder>🐶</div>'"></div></div>
+    <div class="gallery-item"><div class="gallery-img"><img src="/FRONTEND CLIENT/assets/Image-3.png" alt="Pet 3" onerror="this.parentNode.innerHTML='<div class=gallery-placeholder>🐾</div>'"></div></div>
+    <div class="gallery-item"><div class="gallery-img"><img src="/FRONTEND CLIENT/assets/Image-4.png" alt="Pet 4" onerror="this.parentNode.innerHTML='<div class=gallery-placeholder>🐕</div>'"></div></div>
+    <div class="gallery-item"><div class="gallery-img"><img src="/FRONTEND CLIENT/assets/Image-5.png" alt="Pet 5" onerror="this.parentNode.innerHTML='<div class=gallery-placeholder>🐈</div>'"></div></div>
+  </div>
+</div>
 
-    <!-- Services Section -->
-    <div class="services-section">
-        <div class="section-title">
-            <h2>CHĂM SÓC THÚ CƯNG CỦA BẠN VỚI</h2>
-            <h2>CÁC DỊCH VỤ CHUYÊN NGHIỆP</h2>
-        </div>
-        <div class="section-subtitle">
-            Chúng tôi cung cấp đầy đủ các dịch vụ chăm sóc và làm đẹp cho thú cưng của bạn với đội ngũ chuyên gia giàu kinh nghiệm và trang thiết bị hiện đại.
-        </div>
-
-        <div class="services-grid">
-            <!-- Thu y -->
-            <div class="service-card highlight">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 1.png" alt="Thu Y">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Dịch vụ thú y</h3>
-                    <p class="service-description">
-                      Khám và chăm sóc sức khỏe toàn diện cho thú cưng với đội ngũ bác sĩ chuyên nghiệp, trang thiết bị hiện đại. Tiêm phòng, xét nghiệm, điều trị và phẫu thuật.
-                    </p>
-                    <div class="service-footer">
-                        <a href="/FRONTEND CLIENT/grooming/groomingdetails.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Dịch vụ thú y')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Walking -->
-            <div class="service-card highlight">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 2.png" alt="Dắt dạo">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Dắt dạo</h3>
-                    <p class="service-description">
-                        Dịch vụ dắt chó đi dạo chuyên nghiệp, giúp thú cưng của bạn được vận động, giao lưu và khám phá thế giới xung quanh trong môi trường an toàn.
-                    </p>
-                    <div class="service-footer">
-                        <a href="dat-dao-detail.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Dắt dạo')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bathing -->
-            <div class="service-card highlight">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 3.png" alt="Tắm gội">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Tắm gội</h3>
-                    <p class="service-description">
-                        Dịch vụ tắm gội cao cấp với quy trình chuẩn quốc tế, sử dụng các sản phẩm chăm sóc da và lông phù hợp với từng giống chó mèo.
-                    </p>
-                    <div class="service-footer">
-                        <a href="tam-goi-detail.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Tắm gội')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Training -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 4.png" alt="Huấn luyện">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Huấn luyện</h3>
-                    <p class="service-description">
-                        Chương trình huấn luyện cơ bản và nâng cao giúp thú cưng của bạn ngoan ngoãn, thông minh và có những kỹ năng cần thiết trong cuộc sống.
-                    </p>
-                    <div class="service-footer">
-                        <a href="huan-luyen-detail.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Huấn luyện')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nail Clipping -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 5.png" alt="Cắt móng">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Cắt móng</h3>
-                    <p class="service-description">
-                        Dịch vụ cắt tỉa móng chuyên nghiệp, an toàn giúp thú cưng của bạn thoải mái khi di chuyển và tránh các vấn đề về móng.
-                    </p>
-                    <div class="service-footer">
-                        <a href="cat-mong-detail.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Cắt móng')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Daycare -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="/FRONTEND CLIENT/assets/grooming_services/image 6.png" alt="Nhà trẻ">
-                </div>
-                <div class="service-content">
-                    <h3 class="service-title">Nhà trẻ</h3>
-                    <p class="service-description">
-                        Dịch vụ chăm sóc ban ngày trong môi trường an toàn, vui vẻ với các hoạt động giải trí và giao lưu cùng bạn bè thú cưng khác.
-                    </p>
-                    <div class="service-footer">
-                        <a href="nha-tre-detail.html" class="read-more">Tìm hiểu thêm →</a>
-                        <button class="booking-btn" onclick="openBookingModal('Nhà trẻ')">Đặt lịch</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Grooming Packages Section -->
-    <div class="packages-section">
-        <div class="section-title">
-            <h2>GÓI GROOMING TOÀN DIỆN</h2>
-        </div>
-        <div class="section-subtitle">
-            Chọn gói dịch vụ phù hợp với nhu cầu của thú cưng. Mỗi gói đều được thiết kế để mang lại trải nghiệm chăm sóc tốt nhất.
-        </div>
-
-        <div class="packages-grid">
-            <!-- Basic Package -->
-            <div class="package-card basic">
-                <div class="package-header">
-                    <h3 class="package-name">Gói Basic</h3>
-                    <div class="package-price">499.000đ</div>
-                    <div class="package-duration">Thời gian: 60-90 phút</div>
-                </div>
-                <div class="package-features">
-                    <ul>
-                        <li>Tắm gội với sản phẩm cao cấp</li>
-                        <li>Sấy khô và chải lông</li>
-                        <li>Cắt tỉa móng</li>
-                        <li>Vệ sinh tai</li>
-                        <li>Cắt tỉa lông cơ bản</li>
-                        <li>Nước hoa thú cưng</li>
-                        <li>Kiểm tra sức khỏe cơ bản</li>
-                    </ul>
-                </div>
-                <div class="package-footer">
-                    <button class="package-btn" onclick="openBookingModal('Gói Basic')">Đặt lịch ngay</button>
-                </div>
-            </div>
-
-            <!-- Advanced Package -->
-            <div class="package-card advanced">
-                <div class="package-header">
-                    <h3 class="package-name">Gói Advanced</h3>
-                    <div class="package-price">899.000đ</div>
-                    <div class="package-duration">Thời gian: 120-150 phút</div>
-                </div>
-                <div class="package-features">
-                    <ul>
-                        <li>Tất cả dịch vụ trong gói Basic</li>
-                        <li>Tạo kiểu lông theo yêu cầu</li>
-                        <li>Spa thư giãn với tinh dầu</li>
-                        <li>Massage thư giãn</li>
-                        <li>Vệ sinh răng miệng chuyên sâu</li>
-                        <li>Nhuộm lông an toàn (tùy chọn)</li>
-                        <li>Chụp ảnh lưu niệm</li>
-                        <li>Tặng kèm băng đô/nơ xinh</li>
-                        <li>Tư vấn chăm sóc tại nhà</li>
-                    </ul>
-                </div>
-                <div class="package-footer">
-                    <button class="package-btn" onclick="openBookingModal('Gói Advanced')">Đặt lịch ngay</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery Section -->
-    <div class="gallery-section">
-        <div class="gallery-title">
-            <h2>Râu, Đuôi Và Đôi Mắt Rạng Rỡ</h2>
-            <p>Bộ Sưu Tập Đầy Yêu Thương</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image-1.png" alt="Pet 1">
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image-2.png" alt="Pet 2">
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image-3.png" alt="Pet 3">
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image-4.png" alt="Pet 4">
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image-5.png" alt="Pet 5">
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="/FRONTEND CLIENT/assets/Image.png" alt="Pet 6">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <h2>Đặt lịch dịch vụ</h2>
-            <form id="bookingForm" onsubmit="handleBooking(event)">
-                <input type="text" id="serviceName" readonly>
-                <input type="text" placeholder="Họ và tên *" required>
-                <input type="tel" placeholder="Số điện thoại *" required>
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="Tên thú cưng *" required>
-                <select required>
-                    <option value="">Chọn loại thú cưng *</option>
-                    <option value="dog">Chó</option>
-                    <option value="cat">Mèo</option>
-                    <option value="other">Khác</option>
-                </select>
-                <input type="date" placeholder="Ngày hẹn *" required>
-                <select required>
-                    <option value="">Chọn giờ hẹn *</option>
-                    <option value="08:00">08:00</option>
-                    <option value="09:00">09:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                </select>
-                <textarea placeholder="Ghi chú (nếu có)" rows="3"></textarea>
-                <button type="submit" class="submit-btn">Xác nhận đặt lịch</button>
-            </form>
-        </div>
-    </div>
-    <!-- Footer -->
+<!-- Footer -->
 <footer class="footer">
-    <div class="footer-article">
-        <div class="wrap-content">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
-                <!-- Company Info -->
-                <div class="footer-news">
-                    <a class="logo-footer" href="/">
-                        <img src="/FRONTEND CLIENT/assets/logo.png" alt="PURE PAW PET SHOP" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
-                    </a>
-                    <div class="name-footer">PURE PAW PET SHOP</div>
-                    <div class="info-footer">
-                        <p>
-                            <strong>"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"</strong><br><br>
-                            📍 Địa chỉ: 07 Cửu Long, Phường Hòa Hưng, TP. Hồ Chí Minh<br>
-                            📞 Điện thoại: 083 764 5555<br>
-                            ✉️ Email: info@purepaw.com<br>
-                            🌐 Website: http://purepaw.com/
-                        </p>
-                    </div>
-                    <ul class="social">
-                        <li><a href="https://www.facebook.com/purepawpetshop" target="_blank">f</a></li>
-                        <li><a href="#">📱</a></li>
-                        <li><a href="#">▶️</a></li>
-                    </ul>
-                </div>
-
-                <!-- Policies -->
-                <div class="footer-news">
-                    <h4 class="title-footer">CHÍNH SÁCH CÔNG TY</h4>
-                    <ul class="footer-ul">
-                        <li><a href="/chinh-sach-dat-lich">Chính sách đặt lịch</a></li>
-                        <li><a href="/chinh-sach-mua-hang">Chính sách mua hàng</a></li>
-                        <li><a href="/chinh-sach-giao-hang">Chính sách giao hàng</a></li>
-                        <li><a href="/chinh-sach-thanh-toan">Chính sách thanh toán</a></li>
-                    </ul>
-                    <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px;">
-                        <div style="font-size: 40px;">🕐</div>
-                        <div>
-                            <div style="color: #FFE002; font-weight: 700; margin-bottom: 5px;">Giờ Mở Cửa</div>
-                            <span>08:00 - 20:00 (Mon - Sun)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu -->
-                <div class="footer-news">
-                    <h4 class="title-footer">DANH MỤC</h4>
-                    <ul class="footer-ul">
-                        <li><a href="/">Trang chủ</a></li>
-                        <li><a href="/gioi-thieu">Giới thiệu</a></li>
-                        <li><a href="/dich-vu">Dịch vụ</a></li>
-                        <li><a href="/san-pham">Sản phẩm</a></li>
-                        <li><a href="/album">Album</a></li>
-                        <li><a href="/tin-tuc">Tin tức</a></li>
-                        <li><a href="/lien-hệ">Liên hệ</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo"><div class="paw">🐾</div> Pure Paw Pet Shop</a>
+      <p class="footer-desc">"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"<br>Chúng tôi cam kết mang đến dịch vụ chăm sóc thú cưng tốt nhất với tất cả yêu thương.</p>
+      <div class="footer-contact">
+        <span>📍 07 Cửu Long, Phường Hòa Hưng, TP. HCM</span>
+        <span>📞 <a href="tel:0837645555" style="color:#888;text-decoration:none">083 764 5555</a></span>
+        <span>✉️ info@purepaw.com</span>
+      </div>
     </div>
-
-    <!-- Copyright -->
-    <div class="footer-powered">
-        <div class="wrap-content">
-            <div>
-                Copyright © <strong>PURE PAW PET SHOP</strong>. All rights reserved. Designed by Nina
-            </div>
-        </div>
+    <div class="footer-col">
+      <h4>Chính sách</h4>
+      <ul>
+        <li><a href="#">Chính sách đặt lịch</a></li>
+        <li><a href="#">Chính sách mua hàng</a></li>
+        <li><a href="#">Chính sách giao hàng</a></li>
+        <li><a href="#">Chính sách thanh toán</a></li>
+      </ul>
+      <div class="footer-hours">
+        <div class="hours-label">Giờ mở cửa</div>
+        <div class="hours-val">08:00 – 20:00 · Thứ 2 – CN</div>
+      </div>
     </div>
+    <div class="footer-col">
+      <h4>Danh mục</h4>
+      <ul>
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/gioi-thieu">Giới thiệu</a></li>
+        <li><a href="/dich-vu">Dịch vụ</a></li>
+        <li><a href="/san-pham">Sản phẩm</a></li>
+        <li><a href="/album">Album</a></li>
+        <li><a href="/tin-tuc">Tin tức</a></li>
+        <li><a href="/lien-he">Liên hệ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Pure Paw Pet Shop. Designed by Nina</span>
+    <div class="footer-socials">
+      <a class="social-btn" href="https://facebook.com/purepawpetshop" target="_blank">f</a>
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">▷</a>
+    </div>
+  </div>
 </footer>
 
-<!-- Scroll to Top Button -->
-<div class="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Scroll to top button visibility
-    window.addEventListener('scroll', function() {
-        const scrollBtn = document.querySelector('.scrollToTop');
-        if (window.pageYOffset > 300) {
-            scrollBtn.style.display = 'flex';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    });
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-    // Initialize scroll button as hidden
-    document.querySelector('.scrollToTop').style.display = 'none';
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-service-tag" id="modalTag">📅 Đặt lịch</div>
+    <h2>Đặt lịch dịch vụ</h2>
+    <form class="modal-form" onsubmit="handleSubmit(event)">
+      <input type="hidden" id="serviceField">
+      <div class="field-row">
+        <div class="field"><label>Họ và tên *</label><input type="text" placeholder="Nguyễn Văn A" required></div>
+        <div class="field"><label>Số điện thoại *</label><input type="tel" placeholder="09x xxx xxxx" required></div>
+      </div>
+      <div class="field"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+      <div class="field-row">
+        <div class="field"><label>Tên thú cưng *</label><input type="text" placeholder="Mèo, Cún..." required></div>
+        <div class="field"><label>Loại thú cưng *</label>
+          <select required><option value="">Chọn loại</option><option>Chó</option><option>Mèo</option><option>Khác</option></select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Ngày hẹn *</label><input type="date" id="dateField" required></div>
+        <div class="field"><label>Giờ hẹn *</label>
+          <select required><option value="">Chọn giờ</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Ghi chú</label><textarea placeholder="Yêu cầu đặc biệt, tình trạng sức khỏe thú cưng..."></textarea></div>
+      <button type="submit" class="btn-submit">Xác nhận đặt lịch →</button>
+    </form>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').style.display=window.scrollY>300?'flex':'none';
+});
+function openModal(service){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('serviceField').value=service;
+  document.getElementById('modalTag').textContent='📅 '+service;
+  document.body.style.overflow='hidden';
+  document.getElementById('dateField').min=new Date().toISOString().split('T')[0];
+}
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+  document.body.style.overflow='';
+}
+function handleSubmit(e){
+  e.preventDefault();
+  const data={service:document.getElementById('serviceField').value};
+  localStorage.setItem('bookingData',JSON.stringify(data));
+  window.location.href='groomingcheckout.html';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 </script>
-
-    <script>
-        // Modal functions
-        function openBookingModal(serviceName) {
-            document.getElementById('bookingModal').style.display = 'block';
-            document.getElementById('serviceName').value = serviceName;
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('bookingModal');
-            if (event.target == modal) {
-                closeBookingModal();
-            }
-        }
-
-        // Handle booking form submission
-        function handleBooking(event) {
-            event.preventDefault();
-            
-            // Lấy thông tin từ form
-            const formData = {
-                service: document.getElementById('serviceName').value,
-                name: event.target.elements[1].value,
-                phone: event.target.elements[2].value,
-                email: event.target.elements[3].value,
-                petName: event.target.elements[4].value,
-                petType: event.target.elements[5].value,
-                date: event.target.elements[6].value,
-                time: event.target.elements[7].value,
-                notes: event.target.elements[8].value
-            };
-            
-            // Lưu thông tin vào localStorage để sử dụng ở trang thanh toán
-            localStorage.setItem('bookingData', JSON.stringify(formData));
-            
-            // Chuyển hướng đến trang thanh toán
-            window.location.href = 'groomingcheckout.html';
-        }
-
-        // Set minimum date to today
-        const dateInput = document.querySelector('input[type="date"]');
-        if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.setAttribute('min', today);
-        }
-    </script>
 </body>
 </html>
