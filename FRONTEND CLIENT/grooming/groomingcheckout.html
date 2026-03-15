@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thanh Toán - PURE PAW PET SHOP</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap&family=Lato:wght@400;600" rel="stylesheet">
 
 <!-- Inline SVG sprite -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -213,45 +213,187 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);o
   .steps{gap:4px}
   .step-label{display:none}
 }
+
+        /* ═══════════════════════════════════════
+           HEADER (Pure Paw standard)
+        ═══════════════════════════════════════ */
+        .header {
+            width: 100%;
+            background: #fff;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid #f0e8d0;
+        }
+        .header__inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            height: 136px;
+            position: relative;
+        }
+        .header__addr {
+            position: absolute;
+            left: 78px;
+            top: 26px;
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; font-size: 16px; color: #1c1c1c; line-height: 1.2;
+            white-space: nowrap;
+        }
+        .header__addr i { font-size: 16px; color: #1c1c1c; }
+        .header__hotline {
+            position: absolute;
+            right: 78px; top: 26px;
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; font-size: 16px; color: #1c1c1c; line-height: 1.2;
+            white-space: nowrap;
+        }
+        .header__hotline i { font-size: 16px; color: #1c1c1c; }
+        .header__logo {
+            position: absolute;
+            left: 53%; top: 0;
+            transform: translateX(-50%);
+            width: 136px; height: 136px;
+            z-index: 5; overflow: hidden;
+        }
+        .header__logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .header__nav {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 63px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding-right: 160px;
+        }
+        .header__nav-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 22px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600; font-size: 18px; color: #1c1c1c;
+            white-space: nowrap; text-decoration: none;
+            line-height: 1.2; height: 42px;
+            position: relative; z-index: 1;
+            transition: color 0.2s;
+        }
+        .header__nav-item:hover { color: #ffb606; }
+        .header__nav-item--active {
+            border: 2px solid #ffb606;
+            border-radius: 24px;
+        }
+        .header__nav-dot {
+            width: 7px; height: 7px;
+            background: #1c1c1c; border-radius: 50%; flex-shrink: 0;
+        }
+        .header__nav-gap { width: 136px; flex-shrink: 0; pointer-events: none; }
+        .header__icons {
+            position: absolute;
+            right: 60px; bottom: 11px;
+            display: flex; align-items: center;
+            background: #ffb606;
+            border-radius: 24px;
+            padding: 8px 14px;
+            height: 42px;
+            gap: 14px;
+            z-index: 6;
+        }
+        .header__icons i {
+            font-size: 18px;
+            color: #000;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .header__icons i:hover { opacity: 0.6; }
+        .header__hamburger {
+            display: none;
+            position: absolute;
+            right: 20px; top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            z-index: 10;
+        }
+        .header__hamburger span {
+            display: block;
+            width: 24px; height: 2px;
+            background: #1c1c1c;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .header__nav--open { display: flex !important; }
+
+        @media (max-width: 800px) {
+            .header__inner { height: auto; min-height: 70px; }
+            .header__addr, .header__hotline { display: none; }
+            .header__logo {
+                position: relative;
+                left: auto; transform: none;
+                margin: 0 auto;
+                display: block;
+                width: 80px; height: 80px;
+            }
+            .header__hamburger { display: flex; }
+            .header__nav {
+                display: none;
+                position: static;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 20px 16px;
+                gap: 0;
+                border-top: 1px solid #f0e8d0;
+            }
+            .header__nav-gap { display: none; }
+            .header__nav-item { font-size: 15px; padding: 10px 0; width: 100%; height: auto; }
+            .header__nav-item--active { border: none; border-left: 3px solid #ffb606; border-radius: 0; padding-left: 12px; }
+            .header__icons { position: static; margin: 12px auto 8px; width: fit-content; }
+        }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<!-- Topbar -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-item">
-      <svg width="13" height="13"><use href="#ic-map-pin"/></svg>
-      07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh
+<!-- HEADER -->
+<header class="header">
+    <div class="header__inner">
+        <div class="header__addr">
+            <i class="fa-solid fa-location-dot"></i>
+            Địa chỉ: 669 Quốc lộ 1A, Linh Xuân, TP. Thủ Đức, TP. HCM
+        </div>
+        <div class="header__hotline">
+            <i class="fa-solid fa-phone"></i>
+            Hotline: 090 123 4567
+        </div>
+        <div class="header__logo">
+            <img src="assets/logo.png" alt="Pure Paw Logo">
+        </div>
+        <button class="header__hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="header__nav" id="mainNav">
+            <a class="header__nav-item" href="/">TRANG CHỦ</a>
+            <a class="header__nav-item" href="/gioi-thieu">GIỚI THIỆU</a>
+            <a class="header__nav-item header__nav-item--active" href="/dich-vu">
+                <span class="header__nav-dot"></span>DỊCH VỤ
+            </a>
+            <a class="header__nav-item" href="/san-pham">SẢN PHẨM</a>
+            <div class="header__nav-gap"></div>
+            <a class="header__nav-item" href="/album">ALBUM</a>
+            <a class="header__nav-item" href="/tin-tuc">TIN TỨC</a>
+            <a class="header__nav-item" href="/lien-he">LIÊN HỆ</a>
+        </nav>
+        <div class="header__icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
     </div>
-    <div class="topbar-item">
-      <svg width="13" height="13"><use href="#ic-phone"/></svg>
-      Hotline: <a href="tel:0837645555">083 764 5555</a>
-    </div>
-  </div>
-</div>
-
-<!-- Nav -->
-<nav class="nav">
-  <div class="nav-inner">
-    <ul class="nav-links">
-      <li><a href="/">Trang chủ</a></li>
-      <li><a href="/gioi-thieu">Giới thiệu</a></li>
-      <li><a href="/dich-vu">Dịch vụ</a></li>
-      <li><a href="/san-pham">Sản phẩm</a></li>
-    </ul>
-    <a href="/" class="logo">
-      <div class="logo-paw"><svg width="20" height="20" style="color:var(--ink)"><use href="#ic-paw"/></svg></div>
-      PURE PAW
-    </a>
-    <ul class="nav-links">
-      <li><a href="/album">Album</a></li>
-      <li><a href="/tin-tuc">Tin tức</a></li>
-      <li><a href="/lien-he">Liên hệ</a></li>
-      <li><a href="#"><svg width="17" height="17" style="color:var(--ink-soft);display:block"><use href="#ic-search"/></svg></a></li>
-    </ul>
-  </div>
-</nav>
+</header>
 
 <!-- Hero -->
 <div class="page-hero">
