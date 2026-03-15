@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản phẩm - VSA PET CLINIC</title>
+    <title>Sản phẩm - PURE PAW PET HOUSE</title>
     
     <style>
         * {
@@ -20,83 +20,140 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            box-shadow: 0 4px 15px rgba(255, 182, 6, 0.3);
-        }
-
-        .header-top {
-            background: rgba(28, 28, 28, 0.1);
-            padding: 10px 0;
-        }
-
-        .wrap-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .info-header {
-            color: #1C1C1C;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .info-header a {
-            color: #1C1C1C;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Navigation Menu */
-        .menu {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
+            width: 100%;
+            background: #fff;
+            position: relative;
             z-index: 100;
+            border-bottom: 1px solid #f0e8d0;
         }
-
-        .menu .wrap-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 20px;
+        .header__inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            height: 136px;
+            position: relative;
         }
-
-        .logo-header {
+        .header__addr {
+            position: absolute;
+            left: 78px;
+            top: 26px;
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; font-size: 16px; color: #1c1c1c; line-height: 1.2;
+            white-space: nowrap;
+        }
+        .header__addr i { font-size: 16px; color: #1c1c1c; }
+        .header__hotline {
+            position: absolute;
+            right: 78px; top: 26px;
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; font-size: 16px; color: #1c1c1c; line-height: 1.2;
+            white-space: nowrap;
+        }
+        .header__hotline i { font-size: 16px; color: #1c1c1c; }
+        .header__logo {
+            position: absolute;
+            left: 53%; top: 0;
+            transform: translateX(-50%);
+            width: 136px; height: 136px;
+            z-index: 5; overflow: hidden;
+        }
+        .header__logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .header__nav {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 63px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0;
+            padding-right: 160px;
         }
-
-        .logo-header img {
-            max-height: 80px;
-            width: auto;
+        .header__nav-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 22px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600; font-size: 18px; color: #1c1c1c;
+            white-space: nowrap; text-decoration: none;
+            line-height: 1.2; height: 42px;
+            position: relative; z-index: 1;
+            transition: color 0.2s;
         }
-
-        .ulmn {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
+        .header__nav-item:hover { color: #ffb606; }
+        .header__nav-item--active {
+            border: 2px solid #ffb606;
+            border-radius: 24px;
         }
-
-        .ulmn > li > a {
-            color: #1C1C1C;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+        .header__nav-dot {
+            width: 7px; height: 7px;
+            background: #1c1c1c; border-radius: 50%; flex-shrink: 0;
+        }
+        .header__nav-gap { width: 136px; flex-shrink: 0; pointer-events: none; }
+        .header__icons {
+            position: absolute;
+            right: 60px; bottom: 11px;
+            display: flex; align-items: center;
+            background: #ffb606;
+            border-radius: 24px;
+            padding: 8px 14px;
+            height: 42px;
+            gap: 14px;
+            z-index: 6;
+        }
+        .header__icons i {
+            font-size: 18px;
+            color: #000;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .header__icons i:hover { opacity: 0.6; }
+        .header__hamburger {
+            display: none;
+            position: absolute;
+            right: 20px; top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            z-index: 10;
+        }
+        .header__hamburger span {
             display: block;
+            width: 24px; height: 2px;
+            background: #1c1c1c;
+            border-radius: 2px;
+            transition: all 0.3s;
         }
+        .header__nav--open { display: flex !important; }
 
-        .ulmn > li > a:hover,
-        .ulmn > li > a.active {
-            background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%);
-            color: #1C1C1C;
+        @media (max-width: 800px) {
+            .header__inner { height: auto; min-height: 70px; }
+            .header__addr, .header__hotline { display: none; }
+            .header__logo {
+                position: relative;
+                left: auto; transform: none;
+                margin: 0 auto;
+                display: block;
+                width: 80px; height: 80px;
+            }
+            .header__hamburger { display: flex; }
+            .header__nav {
+                display: none;
+                position: static;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 20px 16px;
+                gap: 0;
+                border-top: 1px solid #f0e8d0;
+            }
+            .header__nav-gap { display: none; }
+            .header__nav-item { font-size: 15px; padding: 10px 0; width: 100%; height: auto; }
+            .header__nav-item--active { border: none; border-left: 3px solid #ffb606; border-radius: 0; padding-left: 12px; }
+            .header__icons { position: static; margin: 12px auto 8px; width: fit-content; }
         }
 
         /* Search */
@@ -164,7 +221,6 @@
             margin-bottom: 30px;
             padding: 25px;
             background: #ffffff;
-            border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -217,7 +273,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #fffbeb 0%, #fff9e6 100%);
-            height: 250px;
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -233,17 +289,6 @@
 
         .product:hover .pic-product img {
             transform: scale(1.1);
-        }
-
-        /* Placeholder cho hình ảnh */
-        .pic-product::after {
-            content: "📦";
-            font-size: 80px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.3;
         }
 
         .info-product {
@@ -521,11 +566,6 @@
             }
         }
 
-        /* Hide images - placeholder */
-        .pic-product img {
-            display: none;
-        }
-
         /* Menu Mobile Styles */
         .menu-res {
             display: none;
@@ -590,56 +630,45 @@
             }
         }
     </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-top">
-            <div class="wrap-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                    <div class="info-header">
-                        <i>📍</i>
-                        <span>Địa chỉ: 07 Cửu Long, P. Hòa Hưng, TP. Hồ Chí Minh</span>
-                    </div>
-                    <div class="info-header">
-                        <i>📞</i>
-                        <span>Hotline: <a href="tel:0837645555">083 764 5555</a></span>
-                    </div>
-                </div>
+        <div class="header__inner">
+            <div class="header__addr">
+                <i class="fa-solid fa-location-dot"></i>
+                Địa chỉ: 669 Quốc lộ 1A, Linh Xuân, TP. Thủ Đức, TP. HCM
+            </div>
+            <div class="header__hotline">
+                <i class="fa-solid fa-phone"></i>
+                Hotline: 090 123 4567
+            </div>
+            <div class="header__logo">
+                <img src="assets/logo.png" alt="Pure Paw Logo">
+            </div>
+            <button class="header__hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="header__nav" id="mainNav">
+                <a class="header__nav-item" href="/">TRANG CHỦ</a>
+                <a class="header__nav-item" href="/gioi-thieu">GIỚI THIỆU</a>
+                <a class="header__nav-item" href="/dich-vu">DỊCH VỤ</a>
+                <a class="header__nav-item header__nav-item--active" href="/san-pham">
+                    <span class="header__nav-dot"></span>SẢN PHẨM
+                </a>
+                <div class="header__nav-gap"></div>
+                <a class="header__nav-item" href="/album">ALBUM</a>
+                <a class="header__nav-item" href="/tin-tuc">TIN TỨC</a>
+                <a class="header__nav-item" href="/lien-he">LIÊN HỆ</a>
+            </nav>
+            <div class="header__icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </div>
     </header>
-
-    <!-- Navigation Menu -->
-    <nav class="menu">
-        <div class="wrap-content">
-            <ul class="ulmn">
-                <li><a href="/">Trang chủ</a></li>
-                <li><a href="/gioi-thieu">Giới thiệu</a></li>
-                <li><a href="/dich-vu">Dịch vụ</a></li>
-                <li><a href="/san-pham" class="active">Sản phẩm</a></li>
-            </ul>
-
-            <div class="col-logo">
-                <a class="logo-header" href="/">
-                    <img src="" alt="VSA PET CLINIC" style="height: 80px; background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 10px; border-radius: 10px;">
-                </a>
-            </div>
-
-            <ul class="ulmn">
-                <li><a href="/album">Album</a></li>
-                <li><a href="/tin-tuc">Tin tức</a></li>
-                <li><a href="/lien-he">Liên hệ</a></li>
-                <li>
-                    <div class="search-res">
-                        <p class="icon-search">
-                            🔍
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- Mobile Menu -->
     <div class="menu-res">
@@ -648,33 +677,24 @@
                 <span></span>
             </div>
             <div style="flex: 1; text-align: center;">
-                <strong style="font-size: 18px; color: #1C1C1C;">VSA PET CLINIC</strong>
+                <strong style="font-size: 18px; color: #1C1C1C;">PURE PAW PET HOUSE</strong>
             </div>
-        </div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="breadCrumbs">
-        <div class="wrap-content">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="/"><span>Trang chủ</span></a>
-                </li>
-                <li class="breadcrumb-item active">
-                    <a href="/san-pham"><span>Sản phẩm</span></a>
-                </li>
-            </ol>
         </div>
     </div>
 
     <!-- Main Content -->
     <section>
-        <div class="wrap-content" style="margin: 30px auto;">
+        <div class="wrap-content" style="margin: 0px auto;">
             <!-- Page Title -->
             <div class="title-detail">
                 <h1>Sản phẩm</h1>
                 <div class="filter">
-                    <i>🔽</i> Lọc sản phẩm
+                    <select id="sort" style="background: transparent; border: none; color: #1C1C1C; font-weight: 600; font-size: 16px; cursor: pointer;">
+                        <option value="food">Thức ăn & Dinh dưỡng</option>
+                        <option value="accessories">Phụ kiện sinh hoạt hằng ngày</option>
+                        <option value="toys">Đồ chơi & Vận động</option>
+                        <option value="care">Chăm sóc & Vệ sinh</option>
+                    </select>
                 </div>
             </div>
 
@@ -683,18 +703,19 @@
                 <!-- Product 1 -->
                 <div class="product">
                     <div class="pic-product">
-                        <a href="/sup-dinh-duong-cho-cho-lapaw-gourmet-170g">
-                            <img src="" alt="Súp dinh dưỡng cho chó LaPaw Gourmet 170g">
+                        <a href="#">
+                            <img src="https://lapaw.vn/wp-content/uploads/2023/12/pate-meo-lapaw-thit-bo-va-ga-375gr-300x300.jpg"
+                                alt="Pate cho mèo mọi lứa tuổi laPaw vị thịt bò và gà 375g">
                         </a>
                     </div>
                     <div class="info-product">
                         <h3 class="name-product">
-                            <a href="/sup-dinh-duong-cho-cho-lapaw-gourmet-170g">
-                                Súp dinh dưỡng cho chó LaPaw Gourmet 170g
+                            <a href="../FRONTEND CLIENT/productdetail.html">
+                                Pate cho mèo mọi lứa tuổi laPaw vị thịt bò và gà 375g
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">61.740đ</span>
                         </p>
                     </div>
                 </div>
@@ -702,18 +723,19 @@
                 <!-- Product 2 -->
                 <div class="product">
                     <div class="pic-product">
-                        <a href="/pate-cho-cho-moi-lua-tuoi-lapaw-vi-bo-va-rau-cu-375g">
-                            <img src="" alt="Pate cho chó mọi lứa tuổi laPaw vị bò và rau củ 375g">
+                        <a href="#">
+                            <img src="https://lapaw.vn/wp-content/uploads/2023/12/1-300x300.png"
+                                alt="Hạt cho mèo con laPaw Gourmet chuẩn Âu hộp 1,5kg">
                         </a>
                     </div>
                     <div class="info-product">
                         <h3 class="name-product">
-                            <a href="/pate-cho-cho-moi-lua-tuoi-lapaw-vi-bo-va-rau-cu-375g">
-                                Pate cho chó mọi lứa tuổi laPaw vị bò và rau củ 375g
+                            <a href="">
+                                Hạt cho mèo con laPaw Gourmet chuẩn Âu hộp 1,5kg
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">49.980đ</span>
                         </p>
                     </div>
                 </div>
@@ -721,18 +743,18 @@
                 <!-- Product 3 -->
                 <div class="product">
                     <div class="pic-product">
-                        <a href="/pate-cho-cho-moi-lua-tuoi-lapaw-vi-ga-va-rau-cu-375g">
-                            <img src="" alt="Pate cho chó mọi lứa tuổi Lapaw vị gà và rau củ 375g">
+                        <a href="#">
+                            <img src="https://lapaw.vn/wp-content/uploads/2023/12/2-300x300.png" alt="Hạt cho mèo trưởng thành laPaw Gourmet chuẩn Âu hộp 1,5kg">
                         </a>
                     </div>
                     <div class="info-product">
                         <h3 class="name-product">
-                            <a href="/pate-cho-cho-moi-lua-tuoi-lapaw-vi-ga-va-rau-cu-375g">
-                                Pate cho chó mọi lứa tuổi Lapaw vị gà và rau củ 375g
+                            <a href="#">
+                                Hạt cho mèo trưởng thành laPaw Gourmet chuẩn Âu hộp 1,5kg
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">59.920đ</span>
                         </p>
                     </div>
                 </div>
@@ -740,8 +762,29 @@
                 <!-- Product 4 -->
                 <div class="product">
                     <div class="pic-product">
+                        <a href="#">
+                            <img src="https://lapaw.vn/wp-content/uploads/2024/11/9-300x300.png" 
+                                 alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho mèo hỗ trợ đường tiêu hóa túi 1,5KG">
+                        </a>
+                    </div>
+                    <div class="info-product">
+                        <h3 class="name-product">
+                            <a href="#">
+                                LaPaw Hạt dinh dưỡng chuyên biệt dành cho mèo hỗ trợ đường tiêu hóa túi 1,5KG
+                            </a>
+                        </h3>
+                        <p class="price-product">
+                            <span class="price-new">59.920đ</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product">
+                    <div class="pic-product">
                         <a href="/lapaw-hat-dinh-duong-chuyen-biet-danh-cho-cho-kiem-soat-ri-mat-tui-15kg">
-                            <img src="" alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó kiểm soát rỉ mắt túi 1,5KG">
+                            <img src="https://lapaw.vn/wp-content/uploads/2024/11/5.png" 
+                                alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó kiểm soát rỉ mắt túi 1,5KG">
                         </a>
                     </div>
                     <div class="info-product">
@@ -751,16 +794,17 @@
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">288.000đ</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Product 6 -->
                 <div class="product">
                     <div class="pic-product">
                         <a href="/lapaw-hat-dinh-duong-chuyen-biet-danh-cho-cho-kiem-soat-can-nang-tui-15kg">
-                            <img src="" alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó kiểm soát cân nặng túi 1,5KG">
+                            <img src="https://lapaw.vn/wp-content/uploads/2024/11/7.png" 
+                                alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó kiểm soát cân nặng túi 1,5KG">
                         </a>
                     </div>
                     <div class="info-product">
@@ -770,16 +814,17 @@
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">288.000đ</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
+                <!-- Product 7 -->
                 <div class="product">
                     <div class="pic-product">
                         <a href="/lapaw-hat-dinh-duong-chuyen-biet-danh-cho-cho-ho-tro-duong-tieu-hoa-tui-15kg">
-                            <img src="" alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó hỗ trợ đường tiêu hóa túi 1,5KG">
+                            <img src="https://lapaw.vn/wp-content/uploads/2024/11/6.png" 
+                            alt="LaPaw Hạt dinh dưỡng chuyên biệt dành cho chó hỗ trợ đường tiêu hóa túi 1,5KG">
                         </a>
                     </div>
                     <div class="info-product">
@@ -789,26 +834,7 @@
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product">
-                    <div class="pic-product">
-                        <a href="/hat-cho-cho-truong-thanh-lapaw-gourmet-chuan-au-hop-15kg">
-                            <img src="" alt="Hạt cho chó trưởng thành laPaw Gourmet chuẩn Âu hộp 1,5kg">
-                        </a>
-                    </div>
-                    <div class="info-product">
-                        <h3 class="name-product">
-                            <a href="/hat-cho-cho-truong-thanh-lapaw-gourmet-chuan-au-hop-15kg">
-                                Hạt cho chó trưởng thành laPaw Gourmet chuẩn Âu hộp 1,5kg
-                            </a>
-                        </h3>
-                        <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">288.000đ</span>
                         </p>
                     </div>
                 </div>
@@ -816,8 +842,28 @@
                 <!-- Product 8 -->
                 <div class="product">
                     <div class="pic-product">
+                        <a href="/hat-cho-cho-truong-thanh-lapaw-gourmet-chuan-au-hop-15kg">
+                            <img src="https://lapaw.vn/wp-content/uploads/2023/12/4.png" 
+                                alt="Hạt cho chó trưởng thành LaPaw Gourmet chuẩn Âu hộp 1,5kg">
+                        </a>
+                    </div>
+                    <div class="info-product">
+                        <h3 class="name-product">
+                            <a href="/hat-cho-cho-truong-thanh-lapaw-gourmet-chuan-au-hop-15kg">
+                                Hạt cho chó trưởng thành LaPaw Gourmet chuẩn Âu hộp 1,5kg
+                            </a>
+                        </h3>
+                        <p class="price-product">
+                            <span class="price-new">222.000đ</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product">
+                    <div class="pic-product">
                         <a href="/hat-cho-cho-con-lapaw-gourmet-chuan-au-hop-15kg">
-                            <img src="" alt="Hạt cho chó con laPaw Gourmet chuẩn Âu hộp 1,5kg">
+                            <img src="https://lapaw.vn/wp-content/uploads/2023/12/3.png" alt="Hạt cho chó con laPaw Gourmet chuẩn Âu hộp 1,5kg">
                         </a>
                     </div>
                     <div class="info-product">
@@ -827,7 +873,7 @@
                             </a>
                         </h3>
                         <p class="price-product">
-                            <span class="price-new">Liên hệ</span>
+                            <span class="price-new">234.000đ</span>
                         </p>
                     </div>
                 </div>
@@ -870,20 +916,20 @@
                     <!-- Company Info -->
                     <div class="footer-news">
                         <a class="logo-footer" href="/">
-                            <img src="" alt="VSA PET CLINIC" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
+                            <img src="assets/logo.png" alt="PURE PAW PET HOUSE" style="background: linear-gradient(135deg, #FFE002 0%, #FFB606 100%); padding: 15px; border-radius: 10px;">
                         </a>
-                        <div class="name-footer">VSA PET CLINIC</div>
+                        <div class="name-footer">PURE PAW PET HOUSE</div>
                         <div class="info-footer">
                             <p>
                                 <strong>"Trao Tiếng Nói Cho Những Người Bạn Đặc Biệt Không Thể Nói"</strong><br><br>
-                                📍 Địa chỉ: 07 Cửu Long, Phường Hòa Hưng, TP. Hồ Chí Minh<br>
-                                📞 Điện thoại: 083 764 5555<br>
-                                ✉️ Email: vsapetclinic@gmail.com<br>
-                                🌐 Website: http://vsapetclinic.com/
+                                📍 Địa chỉ: 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM<br>
+                                📞 Điện thoại: 090 123 4567<br>
+                                ✉️ Email: purepawpethouse@gmail.com<br>
+                                🌐 Website: http://pủepawpethouse.com/
                             </p>
                         </div>
                         <ul class="social">
-                            <li><a href="https://www.facebook.com/vsapetclinic" target="_blank">f</a></li>
+                            <li><a href="#" target="_blank">f</a></li>
                             <li><a href="#">📱</a></li>
                             <li><a href="#">▶️</a></li>
                         </ul>
@@ -928,7 +974,7 @@
         <div class="footer-powered">
             <div class="wrap-content">
                 <div>
-                    Copyright © <strong>VSA PET CLINIC</strong>. All rights reserved. Designed by Nina
+                    Copyright © <strong>PURE PAW PET HOUSE</strong>. All rights reserved.
                 </div>
             </div>
         </div>
