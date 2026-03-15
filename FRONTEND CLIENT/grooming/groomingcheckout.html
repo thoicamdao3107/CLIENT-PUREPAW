@@ -431,16 +431,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);o
                     </div>
                   </div>
                   <div class="momo-deeplink">
-                    <button id="momoDeeplink" class="btn-momo-open" onclick="openMoMo()">
+                    <a href="https://nhantien.momo.vn/purepaw" id="momoDeeplink" class="btn-momo-open" target="_blank">
                       <span style="font-size:16px">💜</span>
                       Mở app MoMo
-                    </button>
-                    <button class="copy-btn" style="width:44px;height:44px;border-radius:10px;flex-shrink:0" onclick="copyText(MOMO_PHONE,'Số MoMo')" title="Copy số MoMo">
-                      <svg width="15" height="15" style="color:var(--momo-pink)"><use href="#ic-copy"/></svg>
-                    </button>
-                  </div>
-                  <div style="margin-top:10px;font-size:11.5px;color:var(--muted);line-height:1.6;background:var(--momo-bg);border-radius:9px;padding:9px 12px;">
-                    💡 Nếu không mở được app: mở MoMo → <strong>Chuyển tiền</strong> → nhập số <strong>0837 645 555</strong>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -533,12 +527,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);o
       <svg width="38" height="38" style="color:white"><use href="#ic-check"/></svg>
     </div>
     <h2>Đặt lịch<br>thành công! 🎉</h2>
-    <p id="successMsg">Chúng tôi đã nhận yêu cầu đặt lịch. Vui lòng hoàn tất thanh toán theo hướng dẫn và giữ lại biên lai.</p>
+    <p>Cảm ơn bạn đã tin tưởng Pure Paw Pet Shop. Chúng tôi sẽ liên hệ xác nhận lịch hẹn trong vòng 30 phút.</p>
     <div class="booking-ref">
       Mã đặt lịch của bạn
       <strong id="bookingRef">—</strong>
     </div>
-    <div id="paymentReminder" style="margin-bottom:20px;padding:12px 16px;border-radius:12px;font-size:13.5px;line-height:1.7;text-align:left;"></div>
     <div class="success-actions">
       <button class="btn-home" onclick="window.location.href='/'">
         <svg width="16" height="16"><use href="#ic-home"/></svg>
@@ -604,9 +597,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // MoMo content
   document.getElementById('momoContent').textContent = content;
 
-  // Store total for MoMo deeplink
-  window._momoAmount = total;
-  window._momoContent = content;
+  // MoMo deep link — nhantien.momo.vn format
+  const momoUrl = `https://nhantien.momo.vn/${MOMO_PHONE}?amount=${total}&message=${encodeURIComponent(content)}`;
+  document.getElementById('momoDeeplink').href = momoUrl;
 
   // VietQR — generate QR image via vietqr.io API (free, no auth needed)
   generateVietQR(total, content);
@@ -661,82 +654,11 @@ function copyTransferContent() {
 function confirmPayment() {
   const ref = 'PP' + Date.now().toString().slice(-6);
   document.getElementById('bookingRef').textContent = ref;
-
-  // Tailored reminder per payment method
-  const reminders = {
-    cash: {
-      bg: '#ECFDF5', border: '#BBF7D0', color: '#065F46',
-      html: '🏪 <strong>Thanh toán tại quầy khi đến.</strong><br>Không cần chuyển tiền trước. Nhân viên sẽ thu tiền khi bạn đến lịch hẹn.'
-    },
-    bank: {
-      bg: '#EEF4FF', border: '#BFDBFE', color: '#1e40af',
-      html: '🏦 <strong>Vui lòng chuyển khoản trước khi đến.</strong><br>Nội dung: <strong>' + (document.getElementById('transferContent').textContent) + '</strong><br>Chụp màn hình biên lai và mang theo khi đến.'
-    },
-    momo: {
-      bg: '#FFF0F6', border: '#FBCFE8', color: '#9d174d',
-      html: '💜 <strong>Vui lòng chuyển qua MoMo trước khi đến.</strong><br>Số MoMo: <strong>0837 645 555</strong><br>Chụp màn hình giao dịch thành công và mang theo khi đến.'
-    }
-  };
-
-  const r = reminders[currentMethod] || reminders.cash;
-  const el = document.getElementById('paymentReminder');
-  el.style.cssText = `background:${r.bg};border:1px solid ${r.border};color:${r.color};margin-bottom:20px;padding:12px 16px;border-radius:12px;font-size:13.5px;line-height:1.7;text-align:left`;
-  el.innerHTML = r.html;
-
-  const msgs = {
-    cash: 'Lịch hẹn đã được ghi nhận. Thanh toán khi bạn đến trực tiếp cửa hàng.',
-    bank: 'Lịch hẹn đã được ghi nhận. Vui lòng chuyển khoản và giữ lại biên lai.',
-    momo: 'Lịch hẹn đã được ghi nhận. Vui lòng chuyển qua MoMo và giữ lại biên lai.'
-  };
-  document.getElementById('successMsg').textContent = msgs[currentMethod] || msgs.cash;
-
   document.getElementById('successOverlay').classList.add('open');
   try { localStorage.removeItem('bookingData'); } catch(e){}
 }
 
-// ── MOMO DEEP LINK ───────────────────────────────────────
-// Dùng URI scheme momo:// — mở thẳng app nếu đã cài,
-// fallback về store nếu chưa cài.
-function openMoMo() {
-  const amount  = window._momoAmount  || 0;
-  const content = window._momoContent || 'DATLICH';
-  const phone   = MOMO_PHONE;
-
-  // Android: intent URI — mở MoMo app trực tiếp vào màn hình chuyển tiền
-  const intentUrl = `intent://app.momo.vn/transfer?phone=${phone}&amount=${amount}&comment=${encodeURIComponent(content)}#Intent;scheme=momo;package=com.mservice.momotransfer;end`;
-
-  // iOS / universal: momo:// scheme
-  const momoScheme = `momo://transfer?phone=${phone}&amount=${amount}&comment=${encodeURIComponent(content)}`;
-
-  // Universal fallback: store page
-  const fallback = `https://momo.vn/chuyen-tien?phone=${phone}`;
-
-  const isAndroid = /android/i.test(navigator.userAgent);
-  const isIOS     = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isMobile  = isAndroid || isIOS;
-
-  if (!isMobile) {
-    // Desktop: không có app → hiện hướng dẫn
-    showToast('📱 Vui lòng mở app MoMo trên điện thoại');
-    return;
-  }
-
-  if (isAndroid) {
-    window.location.href = intentUrl;
-    // Timeout fallback nếu app chưa cài
-    setTimeout(() => {
-      window.location.href = 'https://play.google.com/store/apps/details?id=com.mservice.momotransfer';
-    }, 1800);
-  } else {
-    // iOS
-    window.location.href = momoScheme;
-    setTimeout(() => {
-      window.location.href = 'https://apps.apple.com/vn/app/momo-vi-dien-tu/id918751511';
-    }, 1800);
-  }
-}
-
-
+// ── HELPERS ───────────────────────────────────────────────
 function getPrice(svc) {
   const p = {
     'Grooming':499000,'Dắt dạo':200000,'Tắm gội':300000,
