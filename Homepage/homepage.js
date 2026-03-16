@@ -70,65 +70,7 @@ function initHeroSlider() {
     });
 }
 
-function initHeader() {
-    const header = document.getElementById('site-header');
-    const toggler = document.querySelector('.navbar-toggler');
-    const collapse = document.getElementById('navbarScroll');
 
-    const syncFixed = () => {
-        if (!header) return;
-        if (window.scrollY >= 80) header.classList.add('nav-fixed');
-        else header.classList.remove('nav-fixed');
-    };
-
-    syncFixed();
-    window.addEventListener('scroll', syncFixed);
-
-    if (toggler && collapse) {
-        toggler.addEventListener('click', () => {
-            const isOpen = collapse.classList.toggle('show');
-            toggler.classList.toggle('collapsed', !isOpen);
-            toggler.setAttribute('aria-expanded', String(isOpen));
-            document.body.classList.toggle('noscroll', isOpen);
-            if (header) header.classList.toggle('active', isOpen);
-        });
-    }
-}
-
-function initHeaderTools() {
-    const header = document.getElementById('site-header');
-    if (!header) return;
-
-    const searchBtn = header.querySelector('.header-tool-search');
-    const popover = header.querySelector('.header-search-popover');
-    const input = header.querySelector('.header-search-input');
-    if (!searchBtn || !popover || !input) return;
-
-    const close = () => {
-        popover.classList.remove('is-open');
-        searchBtn.setAttribute('aria-expanded', 'false');
-    };
-
-    const open = () => {
-        popover.classList.add('is-open');
-        searchBtn.setAttribute('aria-expanded', 'true');
-        window.setTimeout(() => input.focus(), 0);
-    };
-
-    searchBtn.addEventListener('click', () => {
-        if (popover.classList.contains('is-open')) close();
-        else open();
-    });
-
-    document.addEventListener('click', (e) => {
-        if (searchBtn.contains(e.target) || popover.contains(e.target)) return;
-        close();
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close();
-    });
-}
 
 function initMoveTop() {
     const btn = document.getElementById('movetop');
@@ -439,8 +381,6 @@ function initTestimonialsDots() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
-    initHeader();
-    initHeaderTools();
     initMoveTop();
     initCounters();
     initFaqAccordion();
